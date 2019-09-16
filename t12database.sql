@@ -1,5 +1,5 @@
 CREATE TABLE Password_Hash (
-    Hash VARCHAR(20) NOT NULL
+    Hash VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Edit_Permissions_List (
