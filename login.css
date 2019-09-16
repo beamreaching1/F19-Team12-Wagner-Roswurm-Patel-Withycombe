@@ -18,6 +18,7 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 45%;
+max-width: 300px;
 background-color: rgba(50,50,50,0.5) !important;
 }
 
