@@ -1,42 +1,42 @@
 <?php
 
-//Benchmark for appropriate cost
-$timeTarget = 0.05; // 50 milliseconds 
+//Pseudocode for database connection
+$host = "";
+$dbuser = "";
+$dbpass = "";
+$dbname = "";
 
-$cost = 8;
-do {
-    $cost++;
-    $start = microtime(true);
-    password_hash("test", PASSWORD_BCRYPT, ["cost" => $cost]);
-    $end = microtime(true);
-} while (($end - $start) < $timeTarget);
+//Establish SQL connection
+$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
 
-echo "Appropriate Cost Found: " . $cost;
-
-
-
-//Generate hash
-
-$user = "username";
-$pass = "password";
-
-$options = ['cost' => 10,];
-
-//$salt_hash must be stored in a table that can contain up to 255 chars
-$salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
-//Default cost is 10
-
-echo $salt_hash;
-//Store salt_hash in database
-
-//Obtain stored salt_hash from database
-
-//Verify hash against password
-$verified = password_verify($pass, $salt_hash); //Returns bool value
-if ($verified) {
-	echo "Logging in..."
+if(mysqli_connect_error())
+{
+    echo "A database connection error has occured. 
+    Please try again later or contact your system 
+    administrator.<br \>\n";
 } else {
-	echo "Invalid password"
+    //Capture variables, user and pass
+    $user = mysqli_real_escape_string($connection, 
+    filter_input(INPUT_POST,'user'));
+    $pass = mysqli_real_escape_string($connection,
+    filter_input(INPUT_POST,'pass'));
+
+    //Lookup username in db for password hash
+
+    $salt_hash = ;
+
+    //Generate and compare hash for inputted password
+
+    $success = password_verify($pass, $salt_hash);
+
+    if ($success) {
+        echo "Logging in...\n"
+    } else {
+        echo "Invalid credentials!\n"
+    }
+
+
 }
+
 
 ?>
