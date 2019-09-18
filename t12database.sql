@@ -1,4 +1,5 @@
 CREATE TABLE Password_Hash (
+    id INT NOT NULL,
     Hash VARCHAR(255) NOT NULL
 );
 

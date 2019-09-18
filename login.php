@@ -22,19 +22,25 @@ if(mysqli_connect_error())
     filter_input(INPUT_POST,'pass'));
 
     //Lookup username in db for password hash
+    $lookup = "SELECT Hash FROM Password_Hash
+    WHERE id IN (SELECT id FROM Account WHERE 
+    username=$user);
 
-    $salt_hash = ;
+    $userresult = mysqli_query($connection, $lookup);
+
+    $row = mysqli_fetch_assoc($userresult);
+
+    $salt_hash = $row["Hash"];
 
     //Generate and compare hash for inputted password
 
     $success = password_verify($pass, $salt_hash);
 
     if ($success) {
-        echo "Logging in...\n"
+        echo "Logging in...";
     } else {
-        echo "Invalid credentials!\n"
+        echo "Invalid credentials!";
     }
-
 
 }
 
