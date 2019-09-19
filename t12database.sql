@@ -1,6 +1,7 @@
 CREATE TABLE Password_Hash (
     id INT NOT NULL,
-    Hash VARCHAR(255) NOT NULL
+    Hash VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id) REFERENCES Account(id)
 );
 
 CREATE TABLE Edit_Permissions_List (
