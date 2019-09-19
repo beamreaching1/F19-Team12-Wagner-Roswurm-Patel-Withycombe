@@ -22,9 +22,7 @@ if(mysqli_connect_error())
     filter_input(INPUT_POST,'pass'));
 
     //Lookup username in db for password hash
-    $lookup = "SELECT Hash FROM Password_Hash
-    WHERE id IN (SELECT id FROM Account WHERE 
-    username=$user);
+    $lookup = "SELECT Hash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username=$user)";
 
     $userresult = mysqli_query($connection, $lookup);
 
@@ -44,5 +42,6 @@ if(mysqli_connect_error())
 
 }
 
+mysqli_close($connection);
 
 ?>
