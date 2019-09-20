@@ -1,11 +1,12 @@
 /* Made with love by Mutiullah Samim*/
 
 html,body{
-background-image: url('https://amp.businessinsider.com/images/53ac7d46eab8eaa745c21c24-750-412.jpg');
+background-image: url('https://i2.wp.com/www.nustm.org/wp-content/uploads/2017/06/background-image-html.jpg?zoom=1.5&fit=1920%2C1200&ssl=1');
 background-size: cover;
-background-repeat: no-repeat;
+background-repeat: repeat;
 height: 100%;
 font-family: 'verdana', sans-serif;
+scroll-behavior: auto;
 }
 
 .container{
@@ -14,12 +15,13 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: auto;
 margin-top: auto;
 margin-bottom: auto;
-width: 45%;
-max-width: 300px;
-background-color: rgba(50,50,50,0.5) !important;
+width: auto;
+max-width: 100%;
+min-width: 250px;
+background-color: rgba(128, 128, 128, 0.5) !important;
 }
 
 .card-header h3{

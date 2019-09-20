@@ -1,10 +1,10 @@
 <?php
 
 //Pseudocode for database connection
-$host = "";
-$dbuser = "";
-$dbpass = "";
-$dbname = "";
+$host = "172.31.0.0/16";
+$dbuser = "team12";
+$dbpass = "hG827vnymmBh5CVkTSZ3";
+$dbname = "team12";
 
 //Establish SQL connection
 $connection = new mysqli($host,$dbuser,$dbpass,$dbname);
