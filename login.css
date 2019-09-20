@@ -6,6 +6,7 @@ background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'verdana', sans-serif;
+scroll-behavior: auto;
 }
 
 .container{
@@ -14,16 +15,21 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: auto;
 margin-top: auto;
 margin-bottom: auto;
-width: 45%;
-max-width: 300px;
+width: auto;
+max-width: 100%;
+min-width: 250px;
 background-color: rgba(50,50,50,0.5) !important;
 }
 
 .card-header h3{
 color: white;
+}
+
+.card-footer {
+    padding: .75rem 1.00rem;
 }
 
 .input-group-prepend span{
