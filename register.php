@@ -1,7 +1,7 @@
 <?php
 
 //Pseudocode for database connection
-$host = "172.31.0.0/16";
+$host = "172.31.64.59";
 $dbuser = "team12";
 $dbpass = "hG827vnymmBh5CVkTSZ3";
 $dbname = "team12";
