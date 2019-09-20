@@ -12,6 +12,7 @@ CREATE TABLE Account (
 CREATE TABLE Password_Hash (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Hash VARCHAR(255) NOT NULL
+    FOREIGN KEY (id) REFERENCES Account(id)
 );
 
 CREATE TABLE Edit_Permissions_List (
