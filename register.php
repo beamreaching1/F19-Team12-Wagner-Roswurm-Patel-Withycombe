@@ -32,6 +32,13 @@ if(mysqli_connect_error())
     $email = mysqli_real_escape_string($connection,
     filter_input(INPUT_POST,'email'));
 
+    $check_duplicate = "SELECT username FROM Account WHERE username=$user";
+    //Check if query succeeds
+    if(mysqli_query($connection, $check_duplicate))
+    {
+        echo "This username already exists. Please choose another one.";
+    } else {
+    
     //Generate hash of inputted password
     $options = ['cost' => 10,];
     $salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
@@ -47,7 +54,9 @@ if(mysqli_connect_error())
 
     mysqli_query($connection, $store);
 
-    
+    echo "Account created! Please login now.";
+    }
+
 }
 
 mysqli_close($connection);
