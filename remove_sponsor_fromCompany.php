@@ -27,15 +27,13 @@ if(mysqli_connect_error())
     //SQL query to string conversion//
 
 
-        $update = "SELECT id FROM ACCOUNT WHERE username = $user 
-        DELETE FROM Sponsor WHERE id = $id)";
+    $update = "SELECT id FROM ACCOUNT WHERE username = $user 
+    DELETE FROM Sponsor WHERE id = $id)";
 
-        mysqli_query($connection, $update);
+    mysqli_query($connection, $update);
 
 }
 
-
 mysqli_close($connection);
-
 
 ?>
