@@ -59,14 +59,14 @@ if(mysqli_connect_error())
     mysqli_query($connection, $store);
 
     $lookup = "SELECT (id) FROM ACCOUNT WHERE username = $user";
+    $row = mysqli_fetch_assoc($lookup);
+    $id = $row["id"];
 
-    $id = mysqli_query($connection, $lookup);
-
-    $store2 = "INSERT INTO Admin (id) VALUES ($id)";
+    $store2 = "INSERT INTO Sponsor (id) VALUES ($id)";
     mysqli_query($connection, $store2);
 
 
-    echo "Account created! Please login now.";
+    echo "Sponsor Account Created";
     }
 
 }
