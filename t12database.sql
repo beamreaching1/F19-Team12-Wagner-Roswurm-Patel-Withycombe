@@ -1,29 +1,30 @@
+SET FOREIGN_KEY_CHECKS=0;
+CREATE TABLE Account (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    creation_date DATE NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    email_address VARCHAR(35) NOT NULL,
+    username VARCHAR(20)
+);
+
 CREATE TABLE Password_Hash (
-    id INT NOT NULL,
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Hash VARCHAR(255) NOT NULL
+    FOREIGN KEY (id) REFERENCES Account(id)
 );
 
 CREATE TABLE Edit_Permissions_List (
-    id INT NOT NULL,
+    id INT NOT NULL PRIMARY KEY,
     FOREIGN KEY (id) REFERENCES Account(id)
 );
 
 CREATE TABLE Login_Token (
     generated_token VARCHAR(60),
     creation_date DATE,
-    username VARCHAR(20),
-    FOREIGN KEY (username) REFERENCES Account(username)
-);
-
-CREATE TABLE Account (
     id INT NOT NULL,
-    creation_date DATE NOT NULL,
-    first_name VARCHAR(25) NOT NULL,
-    last_name VARCHAR(25) NOT NULL,
-    phone_number VARCHAR(15) NOT NULL,
-    email_address VARCHAR(35) NOT NULL,
-    username VARCHAR(20),
-    PRIMARY KEY (id)
+    FOREIGN KEY (id) REFERENCES Account(id)
 );
 
 CREATE TABLE Admin (
@@ -31,16 +32,9 @@ CREATE TABLE Admin (
     FOREIGN KEY (id) REFERENCES Account(id)
 );
 
-CREATE TABLE Sponsor (
-    company_id INT NOT NULL,
-    id INT NOT NULL,
-    FOREIGN KEY (id) REFERENCES Account(id),
-    FOREIGN KEY (company_id) REFERENCES Company(company_id),
-);
-
 CREATE TABLE Driver (
     address VARCHAR(80) NOT NULL,
-    id INT NOT NULL,
+    id INT NOT NULL PRIMARY KEY,
     sponsored TINYINT(1) NOT NULL,
     incident_count INT NOT NULL,
     points INT NOT NULL,
@@ -51,6 +45,13 @@ CREATE TABLE Company (
     company_id INT NOT NULL,
     company_name VARCHAR(30) NOT NULL,
     PRIMARY KEY (company_id)
+);
+
+CREATE TABLE Sponsor (
+    company_id INT NOT NULL,
+    id INT NOT NULL,
+    FOREIGN KEY (id) REFERENCES Account(id),
+    FOREIGN KEY (company_id) REFERENCES Company(company_id)
 );
 
 CREATE TABLE Sponsor_List (
@@ -78,7 +79,7 @@ CREATE TABLE Item (
     item_id INT NOT NULL,
     item_cost INT NOT NULL,
     item_count INT NOT NULL,
-    PRIMARY KEY (item_id),
+    PRIMARY KEY (item_id)
 );
 
 CREATE TABLE Single_Transaction (
@@ -92,3 +93,4 @@ CREATE TABLE Single_Transaction (
     FOREIGN KEY (item_id) REFERENCES Item(item_id),
     FOREIGN KEY (id) REFERENCES Driver(id)
 );
+SET FOREIGN_KEY_CHECKS=1;

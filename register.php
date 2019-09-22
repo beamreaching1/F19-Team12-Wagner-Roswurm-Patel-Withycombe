@@ -1,10 +1,10 @@
 <?php
 
 //Pseudocode for database connection
-$host = "";
-$dbuser = "";
-$dbpass = "";
-$dbname = "";
+$host = "172.31.64.59";
+$dbuser = "team12";
+$dbpass = "hG827vnymmBh5CVkTSZ3";
+$dbname = "team12";
 
 //Establish SQL connection
 $connection = new mysqli($host,$dbuser,$dbpass,$dbname);
@@ -32,6 +32,13 @@ if(mysqli_connect_error())
     $email = mysqli_real_escape_string($connection,
     filter_input(INPUT_POST,'email'));
 
+    $check_duplicate = "SELECT username FROM Account WHERE username=$user";
+    //Check if query succeeds
+    if(mysqli_query($connection, $check_duplicate))
+    {
+        echo "This username already exists. Please choose another one.";
+    } else {
+    
     //Generate hash of inputted password
     $options = ['cost' => 10,];
     $salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
@@ -39,6 +46,19 @@ if(mysqli_connect_error())
 
     //Store user info into db table
 
+    $store = "INSERT INTO Account(creation_date, first_name, last_name, 
+    phone_number, email_address, username) VALUES(
+        NOW(), $first_name, $last_name, $phone, $email, $user) 
+        AND INSERT INTO Password_Hash(Hash) VALUES(
+        $salt_hash)";
+
+    mysqli_query($connection, $store);
+
+    echo "Account created! Please login now.";
+    }
+
 }
+
+mysqli_close($connection);
 
 ?>

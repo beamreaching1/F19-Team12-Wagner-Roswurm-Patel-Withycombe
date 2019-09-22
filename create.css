@@ -1,9 +1,9 @@
 /* Made with love by Mutiullah Samim*/
 
 html,body{
-background-image: url('https://amp.businessinsider.com/images/53ac7d46eab8eaa745c21c24-750-412.jpg');
+background-image: url('https://i2.wp.com/www.nustm.org/wp-content/uploads/2017/06/background-image-html.jpg?zoom=1.5&fit=1920%2C1200&ssl=1');
 background-size: cover;
-background-repeat: no-repeat;
+background-repeat: repeat;
 height: 100%;
 font-family: 'verdana', sans-serif;
 scroll-behavior: auto;
@@ -21,15 +21,11 @@ margin-bottom: auto;
 width: auto;
 max-width: 100%;
 min-width: 250px;
-background-color: rgba(50,50,50,0.5) !important;
+background-color: rgba(128, 128, 128, 0.5) !important;
 }
 
 .card-header h3{
 color: white;
-}
-
-.card-footer {
-    padding: .75rem 1.00rem;
 }
 
 .input-group-prepend span{
