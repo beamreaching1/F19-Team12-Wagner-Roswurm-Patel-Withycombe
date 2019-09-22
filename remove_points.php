@@ -1,5 +1,5 @@
 <?php
-//Allows admin level user to change other users passwords
+//Allows admin level user to remove points from a driver
 //Connect to database
 $host = "172.31.64.59";
 $dbuser = "team12";
@@ -20,29 +20,26 @@ if(mysqli_connect_error())
     //Capture variables
     $user = mysqli_real_escape_string($connection, 
     filter_input(INPUT_POST,'user'));
-    $newpass = mysqli_real_escape_string($connection,
+    $points = mysqli_real_escape_string($connection,
     filter_input(INPUT_POST,'pass'));
-    $newpass2 = mysqli_real_escape_string($connection,
-    filter_input(INPUT_POST,'pass2'));
 
-    //Check that the passwords match
-    if($newpass == $newpass2)
+    //Check if number was entered
+    if(is_numeric($points))
     {
 
-        $update = "UPDATE Password_Hash SET 
-        HASH = $new_hash WHERE id = (SELECT 
-        id FROM Account WHERE username = $user)";
+        $remove = "UPDATE Driver SET points = 
+        points - $points WHERE id = (SELECT id FROM 
+        Account WHERE username = $user)";
 
-        mysqli_query($connection, $update);
+        mysqli_query($connection, $remove);
+
 
     } else {
-        echo "The entered passwords do not match. Please
-        try again.";
+        echo "Please enter a valid amount of points to remove.";
     }
+
 }
 
-
 mysqli_close($connection);
-
 
 ?>
