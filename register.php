@@ -7,7 +7,7 @@ $dbpass = "hG827vnymmBh5CVkTSZ3";
 $dbname = "team12";
 
 //Establish SQL connection
-$connection = new mysqli($host, $dbuser, $dbpass, $dbname);
+$connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
 
 if(mysqli_connect_error())
 {
@@ -34,7 +34,7 @@ if(mysqli_connect_error())
 
     $check_duplicate = "SELECT username FROM Account WHERE username=$user";
     //Check if query succeeds
-    if(mysqli_query($connection, $check_duplicate))
+    if($connection->query($check_duplicate))
     {
         echo "This username already exists. Please choose another one.";
     } else {
@@ -52,13 +52,16 @@ if(mysqli_connect_error())
         AND INSERT INTO Password_Hash(Hash) VALUES(
         $salt_hash)";
 
-    mysqli_query($connection, $store);
-
-    echo "Account created! Please login now.";
+    if($connection->query($store)){
+        echo "Account created! Please login now.";
+    } else{
+        echo "Error: ". $store ."
+        ". $connection->error;
     }
 
+    
+    }
+    mysqli_close($connection);
 }
-
-mysqli_close($connection);
 
 ?>
