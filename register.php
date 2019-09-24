@@ -46,9 +46,11 @@ if(mysqli_connect_error())
 
     //Store user info into db table
 
+    $timestamp = date("Y-m-d H:i:s");
+
     $store_acc = "INSERT INTO Account(creation_date, first_name, last_name, 
     phone_number, email_address, username) VALUES(
-    NOW(), $first_name, $last_name, $phone, $email, $user)";
+    $timestamp, $first_name, $last_name, $phone, $email, $user)";
 
     $store_hash = "INSERT INTO Password_Hash(Hash) VALUES($salt_hash)";
 
