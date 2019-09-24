@@ -46,20 +46,24 @@ if(mysqli_connect_error())
 
     //Store user info into db table
 
-    $store = "INSERT INTO Account(creation_date, first_name, last_name, 
+    $store_acc = "INSERT INTO Account(creation_date, first_name, last_name, 
     phone_number, email_address, username) VALUES(
-        NOW(), $first_name, $last_name, $phone, $email, $user) 
-        AND INSERT INTO Password_Hash(Hash) VALUES(
-        $salt_hash)";
+    NOW(), $first_name, $last_name, $phone, $email, $user)";
 
-    if($connection->query($store)){
-        echo "Account created! Please login now.";
-    } else{
-        echo "Error: ". $store ."
+    $store_hash = "INSERT INTO Password_Hash(Hash) VALUES($salt_hash)"
+
+    if($connection->query($store_acc)){
+        if($connection->query($store_hash)){
+            echo "Account created! Please login now.";
+        } else {
+            echo "Error: ". $store_hash ."
+            ". $connection->error;
+        }
+    } else {
+        echo "Error: ". $store_acc ."
         ". $connection->error;
     }
 
-    
     }
     mysqli_close($connection);
 }
