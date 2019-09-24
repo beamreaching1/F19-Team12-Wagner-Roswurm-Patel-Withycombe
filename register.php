@@ -7,7 +7,7 @@ $dbpass = "hG827vnymmBh5CVkTSZ3";
 $dbname = "team12";
 
 //Establish SQL connection
-$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
+$connection = new mysqli($host, $dbuser, $dbpass, $dbname);
 
 if(mysqli_connect_error())
 {
