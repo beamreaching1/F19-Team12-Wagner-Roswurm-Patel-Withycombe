@@ -34,7 +34,7 @@ if(mysqli_connect_error())
 
 
 
-    $check_duplicate = "SELECT username FROM Account WHERE username=$user";
+    $check_duplicate = "SELECT username FROM Account WHERE username='$user'";
     //Check if query succeeds
     if($connection->query($check_duplicate))
     {
