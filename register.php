@@ -33,6 +33,7 @@ if(mysqli_connect_error())
     filter_input(INPUT_POST,'email'));
 
 
+
     $check_duplicate = "SELECT username FROM Account WHERE username=$user";
     //Check if query succeeds
     if($connection->query($check_duplicate))
