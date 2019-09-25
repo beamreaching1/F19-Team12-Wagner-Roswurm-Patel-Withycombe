@@ -31,7 +31,7 @@ if(mysqli_connect_error())
 
         $update = "UPDATE Password_Hash SET 
         HASH = $new_hash WHERE id = (SELECT 
-        id FROM Account WHERE username = $user)";
+        id FROM Account WHERE username = '$user')";
 
         mysqli_query($connection, $update);
 

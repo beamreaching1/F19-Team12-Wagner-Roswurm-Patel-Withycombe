@@ -29,7 +29,7 @@ if(mysqli_connect_error())
 
         $remove = "UPDATE Driver SET points = 
         points - $points WHERE id = (SELECT id FROM 
-        Account WHERE username = $user)";
+        Account WHERE username = '$user')";
 
         mysqli_query($connection, $remove);
 
