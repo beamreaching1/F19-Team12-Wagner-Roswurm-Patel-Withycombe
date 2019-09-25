@@ -38,6 +38,7 @@ if(mysqli_connect_error())
     echo $last_name;
     echo $phone;
     echo $email;
+    echo "HI";
 
     $check_duplicate = "SELECT username FROM Account WHERE username=$user";
     //Check if query succeeds
