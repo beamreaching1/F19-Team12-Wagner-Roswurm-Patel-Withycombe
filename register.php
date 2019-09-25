@@ -32,6 +32,13 @@ if(mysqli_connect_error())
     $email = mysqli_real_escape_string($connection,
     filter_input(INPUT_POST,'email'));
 
+    echo $user;
+    echo $pass . $pass2;
+    echo $first_name;
+    echo $last_name;
+    echo $phone;
+    echo $email;
+
     $check_duplicate = "SELECT username FROM Account WHERE username=$user";
     //Check if query succeeds
     if($connection->query($check_duplicate))
