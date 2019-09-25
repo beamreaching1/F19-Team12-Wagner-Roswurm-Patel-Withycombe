@@ -46,7 +46,7 @@ if(mysqli_connect_error())
 
     //Store user info into db table
 
-    $timestamp = date("Y-m-d H:i:s");
+    $timestamp = date('m/d/y');
 
     $store_acc = "INSERT INTO Account(creation_date, first_name, last_name, 
     phone_number, email_address, username) VALUES(
