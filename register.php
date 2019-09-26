@@ -36,7 +36,7 @@ if(mysqli_connect_error())
 
     $check_duplicate = "SELECT username FROM Account WHERE username='$user'";
     //Check if query succeeds
-    if($connection->query($check_duplicate))
+    if(($connection->query($check_duplicate))->num_rows > 0)
     {
         echo "This username already exists. Please choose another one.";
     } else {
