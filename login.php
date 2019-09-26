@@ -29,7 +29,7 @@ if(mysqli_connect_error())
     $row = mysqli_fetch_assoc($userresult);
 
     $salt_hash = $row["Hash"];
-    echo $salt_hash;
+    echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
     //Generate and compare hash for inputted password
 
     $success = password_verify($pass, $salt_hash);
