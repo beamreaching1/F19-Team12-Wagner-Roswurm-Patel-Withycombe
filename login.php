@@ -24,7 +24,7 @@ if(mysqli_connect_error())
     //Lookup username in db for password hash
     $lookup = "SELECT Hash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
 
-    $userresult = mysqli_query($connection, $lookup);
+    $userresult = $connection->query($lookup);
 
     $row = mysqli_fetch_assoc($userresult);
 
