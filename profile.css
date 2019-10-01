@@ -1,0 +1,21 @@
+html,body{
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100%;
+    font-family: 'verdana', sans-serif;
+    scroll-behavior: auto;
+}
+
+#container {
+    margin-left: 35%;
+}
+
+#card{
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: auto;
+    width: auto;
+    max-width: 50%;
+    min-width: 250px;
+    }
