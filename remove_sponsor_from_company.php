@@ -1,5 +1,4 @@
 <?php
-//Allows admin level user to add 100 points to a drivers account
 //Connect to database
 //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -21,14 +20,10 @@ if(mysqli_connect_error())
     //Capture user variable
     $user = mysqli_real_escape_string($connection, 
     filter_input(INPUT_POST,'user'));
-    $id = mysqli_real_escape_string($connection, 
-    filter_input(INPUT_POST,'id'));
 
     //SQL query to string conversion//
 
-
-    $update = "SELECT id FROM ACCOUNT WHERE username = $user 
-    DELETE FROM Sponsor WHERE id = $id)";
+    $update = "DELETE FROM SPONSOR WHERE user_id IN (SELECT id FROM ACCOUNT WHERE username = '$user')";
 
     mysqli_query($connection, $update);
 

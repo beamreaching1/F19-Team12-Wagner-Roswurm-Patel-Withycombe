@@ -1,5 +1,4 @@
 <?php
-//Allows admin level user to add points to a drivers account
 //Connect to database
 //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -22,21 +21,14 @@ if(mysqli_connect_error())
     $user = mysqli_real_escape_string($connection, 
     filter_input(INPUT_POST,'user'));
 
-    $pts = mysqli_real_escape_string($connection, 
-    filter_input(INPUT_POST,'points'));
-
     //SQL query to string conversion//
 
-        $update = "UPDATE Driver SET 
-        points = (points + $pts) WHERE id IN (SELECT 
-        id FROM Account WHERE username = $user)";
+    $update = "DELETE FROM Sponsor_List WHERE user_id IN (SELECT id FROM ACCOUNT WHERE username = '$user')";
 
-        mysqli_query($connection, $update);
+    mysqli_query($connection, $update);
 
 }
 
-
 mysqli_close($connection);
-
 
 ?>
