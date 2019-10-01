@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <style>
 table {
   font-family: arial, sans-serif;
@@ -20,6 +24,7 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+  <div id="nav-placeholder"></div>
 
 <h2>Item</h2>
 
@@ -60,4 +65,10 @@ tr:nth-child(even) {
 </table>
 
 </body>
+
+<script>
+  $(function(){
+    $("#nav-placeholder").load("nav.html");
+  });
+</script>
 </html>
