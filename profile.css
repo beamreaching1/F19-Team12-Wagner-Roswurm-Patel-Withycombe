@@ -37,3 +37,10 @@ html,body{
 #username {
     position: relative;
 }
+
+.card-text {
+    background-color: darkgray;
+    border-style: groove;
+    border-radius: 8px;
+    border-color: gray;
+}
