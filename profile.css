@@ -2,13 +2,13 @@ html,body{
     background-image: url('images/background.jpg');
     background-size: cover;
     background-repeat: repeat;
-    height: 100%;
+    height: auto;
     font-family: 'verdana', sans-serif;
     scroll-behavior: auto;
 }
 
 #container {
-    height: 100%;
+    height: auto;
     align-content: center;
 }
 
@@ -39,8 +39,6 @@ html,body{
 }
 
 .card-text {
-    background-color: darkgray;
-    border-style: groove;
-    border-radius: 8px;
+    background-color: rgb(212, 212, 212);
     border-color: gray;
 }
