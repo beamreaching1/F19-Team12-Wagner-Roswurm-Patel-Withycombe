@@ -26,10 +26,6 @@ if(mysqli_connect_error())
 
     $userresult = $connection->query($lookup);
 
-    echo "Hi".$userresult;
-
-    kill()
-
     $row = mysqli_fetch_assoc($userresult);
 
     $salt_hash = $row["Hash"];
