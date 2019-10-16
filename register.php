@@ -54,7 +54,7 @@ if(mysqli_connect_error())
     phone_number, email_address, username) VALUES(
     $timestamp, '$first_name', '$last_name', '$phone', '$email', '$user')";
 
-    $store_hash = "INSERT INTO Password_Hash(Hash) VALUES('$salt_hash')";
+    $store_hash = "INSERT INTO Password_Hash(id,ash) VALUES((SELECT id FROM Account WHERE username='$user'),'$salt_hash')";
 
     if($connection->query($store_acc)){
         if($connection->query($store_hash)){

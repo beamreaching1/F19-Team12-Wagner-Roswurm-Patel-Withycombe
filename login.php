@@ -32,8 +32,6 @@ if(mysqli_connect_error())
     echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
     //Generate and compare hash for inputted password
 
-    echo $pass;
-
     $success = password_verify($pass, $salt_hash);
 
     if ($success) {
