@@ -29,15 +29,17 @@ if(mysqli_connect_error())
     $row = mysqli_fetch_assoc($userresult);
 
     $salt_hash = $row["ash"];
-    echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
+    //echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
     //Generate and compare hash for inputted password
 
     $success = password_verify($pass, $salt_hash);
 
     if ($success) {
         echo "Logging in...";
+        header("Location: /homepage.html");
     } else {
         echo "Invalid credentials!";
+        header("Location: /login.html");
     }
 
 }
