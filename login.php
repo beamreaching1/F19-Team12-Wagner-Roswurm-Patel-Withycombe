@@ -46,11 +46,9 @@ if(mysqli_connect_error())
     $success = password_verify($pass, $salt_hash);
 
     if ($success) {
-		echo "Logging in...";
 		$_SESSION['sig']="OK";
         header("Location: /homepage.php");
     } else {
-        echo "Invalid credentials!";
 		echo('<script>alert("Failed to login!");</script>');
 	}
 
