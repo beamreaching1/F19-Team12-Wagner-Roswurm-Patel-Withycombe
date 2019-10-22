@@ -93,4 +93,11 @@ CREATE TABLE Single_Transaction (
     FOREIGN KEY (item_id) REFERENCES Item(item_id),
     FOREIGN KEY (id) REFERENCES Driver(id)
 );
+
+CREATE TABLE Sponsor_Keys(
+
+    driver_id INT NOT NULL,
+    sponsor_id INT NOT NULL
+
+)
 SET FOREIGN_KEY_CHECKS=1;
