@@ -2,6 +2,8 @@
 
 session_start();
 
+echo("<script>alert(\"Start\")</script>")
+
 if(isset($_SESSION['sig']))
 {
 	#User is already logged in
