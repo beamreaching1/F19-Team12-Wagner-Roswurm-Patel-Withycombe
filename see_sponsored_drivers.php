@@ -1,5 +1,5 @@
 <?php
-//Allows sponsor level user to see drivers home addressed 
+//Allows an admin to see sponsored drivers based by company 
 //Connect to database
 //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -21,12 +21,16 @@ if(mysqli_connect_error())
     //Capture user variable
     $user = mysqli_real_escape_string($connection, 
     filter_input(INPUT_POST,'user'));
+    $company = mysqli_real_escape_string($connection, 
+    filter_input(INPUT_POST,'company id'));
+
+
 
 
     //SQL query to string conversion//
 
-    $update = "SELECT email_address FROM ACCOUNT WHERE 
-    username = $user";
+        $update = "SELECT * FROM Sponsor_list WHERE 
+        company_id = $company";
 
         mysqli_query($connection, $update);
 
@@ -35,3 +39,4 @@ if(mysqli_connect_error())
 
 mysqli_close($connection);
 
+?>

@@ -34,3 +34,4 @@ if(mysqli_connect_error())
 
 
 mysqli_close($connection);
+
