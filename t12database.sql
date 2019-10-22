@@ -38,6 +38,7 @@ CREATE TABLE Driver (
     sponsored TINYINT(1) NOT NULL,
     incident_count INT NOT NULL,
     points INT NOT NULL,
+    point_goal INT NOT NULL,
     FOREIGN KEY (id) REFERENCES Account(id)
 );
 
