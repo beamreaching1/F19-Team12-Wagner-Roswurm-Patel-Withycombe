@@ -2,7 +2,7 @@
 
 session_start();
 
-echo("<script>alert(\"Start\")</script>")
+echo("<script>alert(\"Start\");</script>")
 
 if(isset($_SESSION['sig']))
 {
