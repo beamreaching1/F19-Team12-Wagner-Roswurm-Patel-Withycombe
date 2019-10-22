@@ -49,7 +49,7 @@ if(mysqli_connect_error())
 		$_SESSION['sig']="OK";
         header("Location: /homepage.php");
     } else {
-		echo('<script>alert("Failed to login!");</script>');
+		header("Location: /homepage.php");
 	}
 
 }
