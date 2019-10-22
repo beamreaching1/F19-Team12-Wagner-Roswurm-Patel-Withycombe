@@ -2,12 +2,10 @@
 
 session_start();
 
-echo("<script>alert(\"Start\");</script>")
-
 if(isset($_SESSION['sig']))
 {
 	#User is already logged in
-	echo("<script>window.location='homepage.php'</script>");	
+	header("Location: /homepage.php");	
 }
 
 #Check if the login form was submitted
