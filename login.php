@@ -2,7 +2,9 @@
 
 session_start();
 
-if(isset($_SESSION['sig']))
+console.log("Start")
+
+if($_SESSION['sig'])
 {
 	#User is already logged in
 	header("Location: /homepage.php");	
@@ -27,10 +29,8 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 } else {
     //Capture variables, user and pass
-    $user = mysqli_real_escape_string($connection, 
-    filter_input(INPUT_POST,'user'));
-    $pass = mysqli_real_escape_string($connection,
-    filter_input(INPUT_POST,'pass'));
+    $user = mysqli_real_escape_string($connection, $_REQUEST['user']);
+    $pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
 
     //Lookup username in db for password hash
     $lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
@@ -49,7 +49,7 @@ if(mysqli_connect_error())
 		$_SESSION['sig']="OK";
         header("Location: /homepage.php");
     } else {
-		header("Location: /homepage.php");
+		echo("<script type='text/javascript'>alert(\"Failed to login!\");</script>");
 	}
 
 }
@@ -72,49 +72,49 @@ mysqli_close($connection);
     
 	<link rel="stylesheet" type="text/css" href="login.css">
 </head>
-<body>
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3>Sign In</h3>
-			</div>
-			<div class="card-body">
-				<form action="login.php" method="POST">
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
+	<body>
+		<div class="container">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card">
+					<div class="card-header">
+						<h3>Sign In</h3>
+					</div>
+					<div class="card-body">
+						<form action="login.php" method="POST">
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" name="user" class="form-control" placeholder="Username" required>
+								
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								<input type="password" name="pass" class="form-control" placeholder="Password" required>
+							</div>
+							<div class="row align-items-center remember">
+								<input type="checkbox">Remember Me
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Login" class="btn float-right login_btn">
+							</div>
+						</form>
+					</div>
+					<div class="card-footer">
+						<div class="d-flex justify-content-center links">
+							Don't have an account? <a href="create.html">Sign Up</a>
 						</div>
-						<input type="text" name="user" class="form-control" placeholder="Username" required>
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						<div class="d-flex justify-content-center">
+							<a href="forgotpassword.html">Forgot your password? </a>
 						</div>
-						<input type="password" name="pass" class="form-control" placeholder="Password" required>
+						<div class="d-flex justify-content-center">
+							<a href="forgotusername.html">Forgot your username? </a>
+						</div>
 					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account? <a href="create.html">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="forgotpassword.html">Forgot your password? </a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="forgotusername.html">Forgot your username? </a>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</body>
+	</body>
 </html>
