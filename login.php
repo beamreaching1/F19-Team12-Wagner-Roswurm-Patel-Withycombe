@@ -2,7 +2,7 @@
 
 session_start();
 
-console.log("Start")
+console.log("Start");
 
 if($_SESSION['sig'])
 {
