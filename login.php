@@ -2,8 +2,6 @@
 
 session_start();
 
-console.log("Start");
-
 if($_SESSION['sig'])
 {
 	#User is already logged in
