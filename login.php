@@ -3,6 +3,9 @@
 session_start();
 
 if($_SESSION['stig'])
+
+console.log("Start");
+
 {
 	#User is already logged in
 	header("Location: /homepage.php");	
