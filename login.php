@@ -2,14 +2,14 @@
 
 session_start();
 
-if($_SESSION['sig'])
+if($_SESSION['stig'])
 {
 	#User is already logged in
 	header("Location: /homepage.php");	
 }
 
 #Check if the login form was submitted
-if(isset($_REQUEST['submit']))
+if($_REQUEST['submit'])
 {
 	//Pseudocode for database connection
 $host = "172.31.64.59";
@@ -44,7 +44,7 @@ if(mysqli_connect_error())
     $success = password_verify($pass, $salt_hash);
 
     if ($success) {
-		$_SESSION['sig']="OK";
+		$_SESSION['stig']="OK";
         header("Location: /homepage.php");
     } else {
 		echo("<script type='text/javascript'>alert(\"Failed to login!\");</script>");
@@ -78,7 +78,7 @@ mysqli_close($connection);
 						<h3>Sign In</h3>
 					</div>
 					<div class="card-body">
-						<form action="login.php" method="POST">
+						<form action="" method="POST">
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
