@@ -8,55 +8,59 @@ if($_SESSION['stig'] == "OK"){
 }
 
 #Check if the login form was submitted
-if($_REQUEST['submit'])
-{
+if($_REQUEST['submit']){
+	$message = $_REQUEST['submit'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
 	//Pseudocode for database connection
-$host = "172.31.64.59";
-$dbuser = "team12";
-$dbpass = "hG827vnymmBh5CVkTSZ3";
-$dbname = "team12";
+	$host = "172.31.64.59";
+	$dbuser = "team12";
+	$dbpass = "hG827vnymmBh5CVkTSZ3";
+	$dbname = "team12";
 
-//Establish SQL connection
-$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
+	//Establish SQL connection
+	$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
 
-if(mysqli_connect_error())
-{
-    echo "A database connection error has occured. 
-    Please try again later or contact your system 
-    administrator.<br \>\n";
+	if(mysqli_connect_error())
+	{
+		echo "A database connection error has occured. 
+		Please try again later or contact your system 
+		administrator.<br \>\n";
+	} else {
+		//Capture variables, user and pass
+		$user = mysqli_real_escape_string($connection, $_REQUEST['user']);
+		$pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
+		
+		if($user == "1"){
+			header("Locations: /homepage.php");
+		}
+
+		//Lookup username in db for password hash
+		$lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
+
+		$userresult = $connection->query($lookup);
+
+		$row = mysqli_fetch_assoc($userresult);
+
+		$salt_hash = $row["ash"];
+		//echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
+		//Generate and compare hash for inputted password
+
+		$success = password_verify($pass, $salt_hash);
+
+		if ($success) {
+			$_SESSION['stig']="OK";
+			header("Location: /homepage.php");
+		} else {
+			$message = "Failed to login!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}
+
+	}
+
+	mysqli_close($connection);
 } else {
-    //Capture variables, user and pass
-    $user = mysqli_real_escape_string($connection, $_REQUEST['user']);
-	$pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
-	
-	if($user == "1"){
-		header("Locations: /homepage.php");
-	}
-
-    //Lookup username in db for password hash
-    $lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
-
-    $userresult = $connection->query($lookup);
-
-    $row = mysqli_fetch_assoc($userresult);
-
-    $salt_hash = $row["ash"];
-    //echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
-    //Generate and compare hash for inputted password
-
-    $success = password_verify($pass, $salt_hash);
-
-    if ($success) {
-		$_SESSION['stig']="OK";
-        header("Location: /homepage.php");
-    } else {
-		$message = "Failed to login!";
-		echo "<script type='text/javascript'>alert('$message');</script>";
-	}
-
-}
-
-mysqli_close($connection);
+	$message = "Failed!";
+	echo "<script type='text/javascript'>alert('$message');</script>";
 }
 
 ?>
