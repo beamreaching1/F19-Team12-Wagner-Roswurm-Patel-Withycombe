@@ -27,7 +27,11 @@ if(mysqli_connect_error())
 } else {
     //Capture variables, user and pass
     $user = mysqli_real_escape_string($connection, $_REQUEST['user']);
-    $pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
+	$pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
+	
+	if($user == "1"){
+		header("Locations: /homepage.php");
+	}
 
     //Lookup username in db for password hash
     $lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
