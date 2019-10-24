@@ -2,12 +2,7 @@
 
 session_start();
 
-print_r($_SESSION);
-
-$message = $_SESSION['stig'];
-echo "<script type='text/javascript'>alert('$message');</script>";
-
-if($_SESSION['stig']){
+if($_SESSION['stig'] == "OK"){
 	#User is already logged in
 	header("Location: /homepage.php");	
 }
