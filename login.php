@@ -8,7 +8,7 @@ if($_SESSION['stig'] == "OK"){
 }
 
 #Check if the login form was submitted
-if($_POST['submit']){
+if(isset($_POST['submit'])){
 	//Pseudocode for database connection
 	$host = "172.31.64.59";
 	$dbuser = "team12";
@@ -25,8 +25,8 @@ if($_POST['submit']){
 		administrator.<br \>\n";
 	} else {
 		//Capture variables, user and pass
-		$user = mysqli_real_escape_string($connection, $_REQUEST['user']);
-		$pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
+		$user = mysqli_real_escape_string($connection, $_POST['user']);
+		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
 		//Lookup username in db for password hash
 		$lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
@@ -53,7 +53,7 @@ if($_POST['submit']){
 
 	mysqli_close($connection);
 } else {
-	$message = "Input Failed!";
+	$message = "Failed!";
 	echo "<script type='text/javascript'>alert('$message');</script>";
 }
 
