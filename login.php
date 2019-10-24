@@ -2,7 +2,7 @@
 
 session_start();
 
-$message = "wrong answer";
+$message = $_SESSION['stig'];
 echo "<script type='text/javascript'>alert('$message');</script>";
 
 if($_SESSION['stig']){
