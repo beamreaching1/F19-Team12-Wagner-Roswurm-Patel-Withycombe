@@ -2,6 +2,8 @@
 
 session_start();
 
+print_r($_SESSION);
+
 $message = $_SESSION['stig'];
 echo "<script type='text/javascript'>alert('$message');</script>";
 
@@ -49,7 +51,8 @@ if(mysqli_connect_error())
 		$_SESSION['stig']="OK";
         header("Location: /homepage.php");
     } else {
-		echo("<script type='text/javascript'>alert(\"Failed to login!\");</script>");
+		$message = "Failed to login!";
+		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 
 }
