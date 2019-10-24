@@ -8,9 +8,7 @@ if($_SESSION['stig'] == "OK"){
 }
 
 #Check if the login form was submitted
-if($_REQUEST['submit']){
-	$message = $_REQUEST['submit'];
-	echo "<script type='text/javascript'>alert('$message');</script>";
+if($_POST['submit']){
 	//Pseudocode for database connection
 	$host = "172.31.64.59";
 	$dbuser = "team12";
@@ -29,10 +27,6 @@ if($_REQUEST['submit']){
 		//Capture variables, user and pass
 		$user = mysqli_real_escape_string($connection, $_REQUEST['user']);
 		$pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
-		
-		if($user == "1"){
-			header("Locations: /homepage.php");
-		}
 
 		//Lookup username in db for password hash
 		$lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
@@ -59,7 +53,7 @@ if($_REQUEST['submit']){
 
 	mysqli_close($connection);
 } else {
-	$message = "Failed!";
+	$message = "Input Failed!";
 	echo "<script type='text/javascript'>alert('$message');</script>";
 }
 
@@ -104,7 +98,7 @@ if($_REQUEST['submit']){
 								<input type="checkbox">Remember Me
 							</div>
 							<div class="form-group">
-								<input type="submit" value="Login" class="btn float-right login_btn">
+								<input type="submit" name="submit" value="Login" class="btn float-right login_btn">
 							</div>
 						</form>
 					</div>
