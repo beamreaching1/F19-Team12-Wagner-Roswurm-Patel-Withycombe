@@ -28,8 +28,6 @@ if(isset($_POST['submit'])){
 		$user = mysqli_real_escape_string($connection, $_POST['user']);
 		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
-		echo "<script type='text/javascript'>alert('$pass');</script>";
-
 		//Lookup username in db for password hash
 		$lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
 
@@ -55,8 +53,7 @@ if(isset($_POST['submit'])){
 
 	mysqli_close($connection);
 } else {
-	$message = "Failed!";
-	echo "<script type='text/javascript'>alert('$message');</script>";
+
 }
 
 ?>
