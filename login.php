@@ -44,7 +44,10 @@ if(isset($_POST['submit'])){
 		if ($success) {
 			$check = "SELECT driver_id FROM Black_List WHERE driver_id = (SELECT id FROM Account WHERE username = '$user')";
 			
-			if(($connection->query($check)->num_rows) == 0){
+			if(($connection->query($check)->num_rows) > 0){
+				$message = "Your account is blacklisted.<b> If you believe this to be a mistake please contact a system admininstrator.";
+				echo "<script type='text/javascript'>alert('$message');</script>";	
+			} else {
 				$lookup = "SELECT * FROM Account WHERE username='$user')";
 
 				$userresult = $connection->query($lookup);
@@ -55,9 +58,6 @@ if(isset($_POST['submit'])){
 	
 				$_SESSION['stig']="OK";
 				header("Location: /homepage.php");
-			} else {
-				$message = "Your account is blacklisted.<b> If you believe this to be a mistake please contact a system admininstrator.";
-				echo "<script type='text/javascript'>alert('$message');</script>";	
 			}
 		} else {
 			$message = "Failed to login!";
