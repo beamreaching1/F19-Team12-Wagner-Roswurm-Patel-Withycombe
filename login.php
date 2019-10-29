@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
 		$success = password_verify($pass, $salt_hash);
 
 		if ($success) {
-			$check = "SELECT driver_id FROM Black_List WHERE id IN (SELECT id FROM Accounts WHERE username = '$user')";
+			$check = "SELECT driver_id FROM Black_List WHERE id = (SELECT id FROM Accounts WHERE username = '$user')";
 			
 			if(($connection->query($check)->num_rows) == 0){
 				$lookup = "SELECT * FROM Account WHERE username='$user')";
