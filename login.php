@@ -2,59 +2,66 @@
 
 session_start();
 
-console.log("Start");
-
-if($_SESSION['sig'])
-{
+if($_SESSION['stig'] == "OK"){
 	#User is already logged in
 	header("Location: /homepage.php");	
 }
 
 #Check if the login form was submitted
-if(isset($_REQUEST['submit']))
-{
+if(isset($_POST['submit'])){
 	//Pseudocode for database connection
-$host = "172.31.64.59";
-$dbuser = "team12";
-$dbpass = "hG827vnymmBh5CVkTSZ3";
-$dbname = "team12";
+	$host = "172.31.64.59";
+	$dbuser = "team12";
+	$dbpass = "hG827vnymmBh5CVkTSZ3";
+	$dbname = "team12";
 
-//Establish SQL connection
-$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
+	//Establish SQL connection
+	$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
 
-if(mysqli_connect_error())
-{
-    echo "A database connection error has occured. 
-    Please try again later or contact your system 
-    administrator.<br \>\n";
-} else {
-    //Capture variables, user and pass
-    $user = mysqli_real_escape_string($connection, $_REQUEST['user']);
-    $pass = mysqli_real_escape_string($connection, $_REQUEST['pass']);
+	if(mysqli_connect_error())
+	{
+		echo "A database connection error has occured. 
+		Please try again later or contact your system 
+		administrator.<br \>\n";
+	} else {
+		//Capture variables, user and pass
+		$user = mysqli_real_escape_string($connection, $_POST['user']);
+		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
-    //Lookup username in db for password hash
-    $lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
+		//Lookup username in db for password hash
+		$lookup = "SELECT ash FROM Password_Hash WHERE id IN (SELECT id FROM Account WHERE username='$user')";
 
-    $userresult = $connection->query($lookup);
+		$userresult = $connection->query($lookup);
 
-    $row = mysqli_fetch_assoc($userresult);
+		$row = mysqli_fetch_assoc($userresult);
 
-    $salt_hash = $row["ash"];
-    //echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
-    //Generate and compare hash for inputted password
+		$salt_hash = $row["ash"];
+		//echo $salt_hash; //THIS NEEDS TO BE REMOVED AFTER DEBUGGING!!!
+		//Generate and compare hash for inputted password
 
-    $success = password_verify($pass, $salt_hash);
+		$success = password_verify($pass, $salt_hash);
 
-    if ($success) {
-		$_SESSION['sig']="OK";
-        header("Location: /homepage.php");
-    } else {
-		echo("<script type='text/javascript'>alert(\"Failed to login!\");</script>");
+		if ($success) {
+			$lookup = "SELECT * FROM Account WHERE username='$user')";
+
+			$userresult = $connection->query($lookup);
+
+			$row = mysqli_fetch_assoc($userresult);
+
+			$_SESSION['role']=$row['rtype'];
+
+			$_SESSION['stig']="OK";
+			header("Location: /homepage.php");
+		} else {
+			$message = "Failed to login!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}
+
 	}
 
-}
+	mysqli_close($connection);
+} else {
 
-mysqli_close($connection);
 }
 
 ?>
@@ -63,7 +70,7 @@ mysqli_close($connection);
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Login Page</title>
@@ -80,7 +87,7 @@ mysqli_close($connection);
 						<h3>Sign In</h3>
 					</div>
 					<div class="card-body">
-						<form action="login.php" method="POST">
+						<form action="" method="POST">
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -98,7 +105,7 @@ mysqli_close($connection);
 								<input type="checkbox">Remember Me
 							</div>
 							<div class="form-group">
-								<input type="submit" value="Login" class="btn float-right login_btn">
+								<input type="submit" name="submit" value="Login" class="btn float-right login_btn">
 							</div>
 						</form>
 					</div>

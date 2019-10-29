@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+
+if(isset($_POST['submit'])){
+
+
 //Allows admin level user to add points to a drivers account
 //Connect to database
 //Pseudocode for database connection
@@ -38,5 +44,8 @@ if(mysqli_connect_error())
 
 mysqli_close($connection);
 
+} else {
+
+}
 
 ?>

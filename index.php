@@ -1,3 +1,4 @@
+<?php header("/login.php");?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -6,11 +7,5 @@
    <script type="text/javascript" src="/js/jquery.min.js"></script>
    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
    <body>
-       <br>
-       <br>
-      <p>Redirecting to Login Page</p>
    </body>
-   <script>
-      window.location.replace("login.html#");
-  </script>
 </html>
