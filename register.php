@@ -59,6 +59,7 @@ if(mysqli_connect_error())
     if($connection->query($store_acc)){
         if($connection->query($store_hash)){
             echo "Account created! Please login now.";
+            header("Location: /login.php");
         } else {
             echo "Error: ". $store_hash ."
             ". $connection->error;

@@ -55,6 +55,9 @@ if(isset($_POST['submit'])){
 	
 				$_SESSION['stig']="OK";
 				header("Location: /homepage.php");
+			} else {
+				$message = "Your account is blacklisted.<b> If you believe this to be a mistake please contact a system admininstrator.";
+				echo "<script type='text/javascript'>alert('$message');</script>";	
 			}
 		} else {
 			$message = "Failed to login!";
