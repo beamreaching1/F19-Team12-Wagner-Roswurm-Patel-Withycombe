@@ -42,16 +42,20 @@ if(isset($_POST['submit'])){
 		$success = password_verify($pass, $salt_hash);
 
 		if ($success) {
-			$lookup = "SELECT * FROM Account WHERE username='$user')";
+			$check = "SELECT driver_id FROM Black_List WHERE id IN (SELECT id FROM Accounts WHERE username = '$user')";
+			
+			if(($connection->query($check)->num_rows) == 0){
+				$lookup = "SELECT * FROM Account WHERE username='$user')";
 
-			$userresult = $connection->query($lookup);
-
-			$row = mysqli_fetch_assoc($userresult);
-
-			$_SESSION['role']=$row['rtype'];
-
-			$_SESSION['stig']="OK";
-			header("Location: /homepage.php");
+				$userresult = $connection->query($lookup);
+	
+				$row = mysqli_fetch_assoc($userresult);
+	
+				$_SESSION['role']=$row['rtype'];
+	
+				$_SESSION['stig']="OK";
+				header("Location: /homepage.php");
+			}
 		} else {
 			$message = "Failed to login!";
 			echo "<script type='text/javascript'>alert('$message');</script>";
