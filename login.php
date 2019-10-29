@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 
 			$row = mysqli_fetch_assoc($userresult);
 
-			$_SESSION['role']=$row['rtype']
+			$_SESSION['role']=$row['rtype'];
 
 			$_SESSION['stig']="OK";
 			header("Location: /homepage.php");
