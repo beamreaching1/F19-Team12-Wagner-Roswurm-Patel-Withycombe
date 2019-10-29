@@ -52,7 +52,7 @@ if(mysqli_connect_error())
 
     $store_acc = "INSERT INTO Account(creation_date, first_name, last_name, 
     phone_number, email_address, username, rtype) VALUES(
-    $timestamp, '$first_name', '$last_name', '$phone', '$email', '$user', d)";
+    $timestamp, '$first_name', '$last_name', '$phone', '$email', '$user', \"d\")";
 
     $store_hash = "INSERT INTO Password_Hash(id,ash) VALUES((SELECT id FROM Account WHERE username='$user'),'$salt_hash')";
 
