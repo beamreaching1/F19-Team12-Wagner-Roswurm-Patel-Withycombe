@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 			$check = "SELECT driver_id FROM Black_List WHERE driver_id = (SELECT id FROM Account WHERE username = '$user')";
 			
 			if(($connection->query($check)->num_rows) > 0){
-				$message = "Your account is blacklisted.<b> If you believe this to be a mistake please contact a system admininstrator.";
+				$message = "Your account is blacklisted. If you believe this to be a mistake please contact a system admininstrator.";
 				echo "<script type='text/javascript'>alert('$message');</script>";	
 			} else {
 				$lookup = "SELECT * FROM Account WHERE username='$user')";
