@@ -6,7 +6,8 @@ CREATE TABLE Account (
     last_name VARCHAR(25) NOT NULL,
     phone_number VARCHAR(15) NOT NULL,
     email_address VARCHAR(35) NOT NULL,
-    username VARCHAR(20)
+    username VARCHAR(20),
+    rtype varchar(1)
 );
 
 CREATE TABLE Password_Hash (

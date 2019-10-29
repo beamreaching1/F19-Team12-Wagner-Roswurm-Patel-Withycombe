@@ -2,8 +2,6 @@
 #Check if the user is logged in (Put this php code in all of your documents that require login)
 session_start();
 
-console.log($_SESSION['stig']);
-
 if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
 	echo('<script>window.location="login.php"</script>');		

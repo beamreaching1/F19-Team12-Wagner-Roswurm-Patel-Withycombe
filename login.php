@@ -42,6 +42,14 @@ if(isset($_POST['submit'])){
 		$success = password_verify($pass, $salt_hash);
 
 		if ($success) {
+			$lookup = "SELECT * FROM Account WHERE username='$user')";
+
+			$userresult = $connection->query($lookup);
+
+			$row = mysqli_fetch_assoc($userresult);
+
+			$_SESSION['role']=$row['rtype']
+
 			$_SESSION['stig']="OK";
 			header("Location: /homepage.php");
 		} else {
