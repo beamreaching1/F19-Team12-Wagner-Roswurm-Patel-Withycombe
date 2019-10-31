@@ -26,7 +26,7 @@ if(mysqli_connect_error())
   $user = mysqli_real_escape_string($connection, $_SESSION['uname']);
 
   //Lookup username in db for password hash
-  $lookup = "SELECT msg FROM notice WHERE username='$user'";
+  $lookup = "SELECT notice FROM msg WHERE username='$user'";
 
   $result = $connection->query($lookup);
 
