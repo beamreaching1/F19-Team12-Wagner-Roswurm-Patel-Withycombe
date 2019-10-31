@@ -31,7 +31,7 @@ if(mysqli_connect_error())
   $result = $connection->query($lookup);
 
   while($row=mysqli_fetch_row($result)){
-    $message = $row;
+    $message = $row[0];
     echo "<script type='text/javascript'>alert('$message');</script>";
   }
 
