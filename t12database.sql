@@ -69,7 +69,6 @@ CREATE TABLE Catalog_List (
 
 CREATE TABLE Black_List (
     driver_id INT NOT NULL,
-    FOREIGN KEY (driver_id) REFERENCES Driver(id)
 );
 
 CREATE TABLE Transaction_List (

@@ -97,7 +97,7 @@ if(mysqli_connect_error())
 
   while($row=mysqli_fetch_row($result)){
     $message = $row[0];
-    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<div>'$message'</div>";
   }
 
   $query = "DELETE FROM msg WHERE username='$user'";
