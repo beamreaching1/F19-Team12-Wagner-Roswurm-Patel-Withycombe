@@ -7,6 +7,38 @@ if($_SESSION['stig'] != "OK"){
 	echo('<script>window.location="login.php"</script>');		
 }
 
+//Pseudocode for database connection
+$host = "172.31.64.59";
+$dbuser = "team12";
+$dbpass = "hG827vnymmBh5CVkTSZ3";
+$dbname = "team12";
+
+//Establish SQL connection
+$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
+
+if(mysqli_connect_error())
+{
+  echo "A database connection error has occured. 
+  Please try again later or contact your system 
+  administrator.<br \>\n";
+} else {
+  //Capture variables, user and pass
+  $user = mysqli_real_escape_string($connection, $_SESSION['uname']);
+
+  //Lookup username in db for password hash
+  $lookup = "SELECT msg FROM notice WHERE username='$user'";
+
+  $result = $connection->query($lookup);
+
+  while($row=mysqli_fetch_row($result)){
+    $message = $row;
+    echo "<script type='text/javascript'>alert('$message');</script>";
+  }
+
+}
+
+mysqli_close($connection);
+
 ?>
 <!DOCTYPE html>
 

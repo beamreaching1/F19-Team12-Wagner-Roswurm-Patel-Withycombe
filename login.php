@@ -57,6 +57,8 @@ if(isset($_POST['submit'])){
 				$_SESSION['role']=$row['rtype'];
 	
 				$_SESSION['stig']="OK";
+
+				$_SESSION['uname']=$user;
 				header("Location: /homepage.php");
 			}
 		} else {
