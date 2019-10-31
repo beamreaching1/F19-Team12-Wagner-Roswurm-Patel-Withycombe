@@ -101,5 +101,11 @@ CREATE TABLE Sponsor_Keys(
     driver_id INT NOT NULL,
     sponsor_id INT NOT NULL
 
-)
+);
+
+CREATE TABLE msg(
+    username varchar(20),
+    notice varchar(255)
+);
+
 SET FOREIGN_KEY_CHECKS=1;

@@ -35,6 +35,9 @@ if(mysqli_connect_error())
     echo "<script type='text/javascript'>alert('$message');</script>";
   }
 
+  $query = "DELETE FROM msg WHERE username='$user'";
+  $result = $connection->query($query);
+
 }
 
 mysqli_close($connection);
