@@ -1,3 +1,60 @@
+<?php
+#Check if the user is logged in (Put this php code in all of your documents that require login)
+session_start();
+
+if($_SESSION['stig'] != "OK"){
+	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
+	echo('<script>window.location="login.php"</script>');
+}
+if($_SESSION['role'] != "a"){
+	echo('<script>window.location="login.php"</script>');
+}
+
+if(isset($_POST['submit'])){
+	//Pseudocode for database connection
+	$host = "172.31.64.59";
+	$dbuser = "team12";
+	$dbpass = "hG827vnymmBh5CVkTSZ3";
+	$dbname = "team12";
+
+	//Establish SQL connection
+	$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
+
+	if(mysqli_connect_error())
+	{
+		echo "A database connection error has occured. 
+		Please try again later or contact your system 
+		administrator.<br \>\n";
+	} else {
+		//Capture variables, user and pass
+		$user = mysqli_real_escape_string($connection, $_POST['username']);
+		$pass = mysqli_real_escape_string($connection, $_POST['newpassword']);
+
+		//Generate hash of inputted password
+		$options = ['cost' => 10,];
+		$salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
+		//Lookup username in db for password hash
+		$lookup = "UPDATE Password_Hash SET ash = '$salt_hash' WHERE id = (SELECT id FROM Account WHERE username='$user')";
+
+		$connection->query($lookup);
+
+		$message = "Password change accpeted!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+
+		} else {
+			$message = "Failed to change password!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+		}
+
+	}
+
+	mysqli_close($connection);
+} else {
+
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -20,7 +77,7 @@
 				<h3>Forgot Password?</h3>
 			</div>
 			<div class="card-body">
-				<form enctype="multipart/form-data" action="register.php" method="POST">
+				<form enctype="multipart/form-data" action="" method="POST">
                     <h5 style="color: aliceblue">Username</h5>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
