@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
 	} else {
 		//Capture variables, user and pass
 		$user = mysqli_real_escape_string($connection, $_POST['user']);
-		$pass = mysqli_real_escape_string($connection, $_POST['newpassword']);
+		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
 		//Generate hash of inputted password
 		$options = ['cost' => 10,];
@@ -76,7 +76,7 @@ if(isset($_POST['submit'])){
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" id="user" class="form-control" placeholder="Username" required>
+						<input type="text" id="user" name="user" class="form-control" placeholder="Username" required>
 						
                     </div>
                     <h5 style="color: aliceblue">New Password</h5>
@@ -84,14 +84,14 @@ if(isset($_POST['submit'])){
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="newpassword" id="pass" class="form-control" placeholder="New Password" required>
+						<input type="password" id="pass" name="pass" class="form-control" placeholder="New Password" required>
                     </div>
                     <h5 style="color: aliceblue">New Password Again</h5>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="newpassword2" id="newuser" class="form-control" placeholder="New Password Again" required>
+						<input type="password" name="pass2" id="pass2" class="form-control" placeholder="New Password Again" required>
                     </div>
                   
 					<div class="form-group">
