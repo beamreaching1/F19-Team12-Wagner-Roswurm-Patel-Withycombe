@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 		administrator.<br \>\n";
 	} else {
 		//Capture variables, user and pass
-		$user = mysqli_real_escape_string($connection, $_POST['username']);
+		$user = mysqli_real_escape_string($connection, $_POST['user']);
 		$pass = mysqli_real_escape_string($connection, $_POST['newpassword']);
 
 		//Generate hash of inputted password
