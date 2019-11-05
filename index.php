@@ -1,4 +1,6 @@
-<?php header("Location: /login.php");?>
+<?php 
+   header("Location: /login.php");
+?>
 <!DOCTYPE html>
 <html>
    <head>
