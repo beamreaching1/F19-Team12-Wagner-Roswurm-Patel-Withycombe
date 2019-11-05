@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 				$message = "Your account is blacklisted. If you believe this to be a mistake please contact a system admininstrator.";
 				echo "<script type='text/javascript'>alert('$message');</script>";	
 			} else {
-				$lookup = "SELECT * FROM Account WHERE username='$user')";
+				$lookup = "SELECT rtype FROM Account WHERE username='$user')";
 
 				$userresult = $connection->query($lookup);
 	

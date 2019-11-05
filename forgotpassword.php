@@ -7,7 +7,7 @@ if($_SESSION['stig'] != "OK"){
 	echo('<script>window.location="login.php"</script>');
 }
 if($_SESSION['role'] != "a"){
-	echo('<script>window.location="nav.html"</script>');
+	echo('<script>window.location="homepage.php"</script>');
 }
 
 if(isset($_POST['submit'])){
