@@ -41,11 +41,7 @@ if(isset($_POST['submit'])){
 		$message = "Password change accpeted!";
 			echo "<script type='text/javascript'>alert('$message');</script>";
 
-		} else {
-			$message = "Failed to change password!";
-			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
-
 	}
 
 	mysqli_close($connection);
