@@ -7,6 +7,9 @@ if($_SESSION['stig'] != "OK"){
 	echo('<script>window.location="login.php"</script>');		
 }
 
+$message = $_SESSION['role'];
+			echo "<script type='text/javascript'>alert('$message');</script>";
+
 ?>
 <!DOCTYPE html>
 
