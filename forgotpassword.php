@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
 		//Lookup username in db for password hash
 		$lookup = "UPDATE Password_Hash SET ash = ''$salt_hash'' WHERE id = (SELECT id FROM Account WHERE username='$user')";
 
-		$connection->query($lookup);
+		$result = $connection->query($lookup);
 
 		$message = "Error: ". $connection->error;
 				echo "<script type='text/javascript'>alert('$message');</script>";
