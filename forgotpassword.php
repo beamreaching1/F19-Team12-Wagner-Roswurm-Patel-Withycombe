@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 		$options = ['cost' => 10,];
 		$salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
 		//Lookup username in db for password hash
-		$lookup = "UPDATE Password_Hash SET ash = '$salt_hash' WHERE id = (SELECT id FROM Account WHERE username='$user')";
+		$lookup = "UPDATE Password_Hash SET ash = ''$salt_hash'' WHERE id = (SELECT id FROM Account WHERE username='$user')";
 
 		$connection->query($lookup);
 
