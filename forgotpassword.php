@@ -27,8 +27,8 @@ if(isset($_POST['submit'])){
 		administrator.<br \>\n";
 	} else {
 		//Capture variables, user and pass
-		$user = mysqli_real_escape_string($connection, $_POST['username']);
-		$pass = mysqli_real_escape_string($connection, $_POST['newpassword']);
+		$user = mysqli_real_escape_string($connection, $_POST['user']);
+		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
 		//Generate hash of inputted password
 		$options = ['cost' => 10,];
@@ -37,6 +37,9 @@ if(isset($_POST['submit'])){
 		$lookup = "UPDATE Password_Hash SET ash = '$salt_hash' WHERE id = (SELECT id FROM Account WHERE username='$user')";
 
 		$connection->query($lookup);
+
+		$message = "Error: ". $connection->error;
+				echo "<script type='text/javascript'>alert('$message');</script>";
 
 		$message = "Password change accpeted!";
 			echo "<script type='text/javascript'>alert('$message');</script>";
@@ -53,10 +56,10 @@ if(isset($_POST['submit'])){
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Forgot Password?</title>
+    <title>Password Reset</title>
        
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
@@ -67,16 +70,16 @@ if(isset($_POST['submit'])){
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Forgot Password?</h3>
+				<h3>Password Reset</h3>
 			</div>
 			<div class="card-body">
-				<form enctype="multipart/form-data" action="" method="POST">
+				<form action="" method="POST">
                     <h5 style="color: aliceblue">Username</h5>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" id="user" class="form-control" placeholder="Username" required>
+						<input type="text" id="user" name="user" class="form-control" placeholder="Username" required>
 						
                     </div>
                     <h5 style="color: aliceblue">New Password</h5>
@@ -84,14 +87,14 @@ if(isset($_POST['submit'])){
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="newpassword" id="pass" class="form-control" placeholder="New Password" required>
+						<input type="password" id="pass" name="pass" class="form-control" placeholder="New Password" required>
                     </div>
-                    <h5 style="color: aliceblue">New Password Again</h5>
+                    <h5 style="color: aliceblue">New Password</h5>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="newpassword2" id="newuser" class="form-control" placeholder="New Password Again" required>
+						<input type="password" name="pass2" id="pass2" class="form-control" placeholder="New Password" required>
                     </div>
                   
 					<div class="form-group">
