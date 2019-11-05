@@ -55,6 +55,9 @@ if(isset($_POST['submit'])){
 				$row = mysqli_fetch_assoc($userresult);
 	
 				$_SESSION['role']=$row['rtype'];
+
+				$message = $row['rtype'];
+				echo "<script type='text/javascript'>alert('$message');</script>";
 	
 				$_SESSION['stig']="OK";
 
