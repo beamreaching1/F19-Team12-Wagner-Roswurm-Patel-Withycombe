@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
 
 		$connection->query($lookup);
 
-		echo "Error: ". $connection->error;
+		console.log("Error: ". $connection->error);
 
 		$message = "Password change accpeted!";
 			echo "<script type='text/javascript'>alert('$message');</script>";
