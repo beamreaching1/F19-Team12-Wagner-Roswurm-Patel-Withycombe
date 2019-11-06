@@ -38,7 +38,7 @@ if(mysqli_connect_error())
     <table style="width=300px;" >
     <tr> 
 
-        <th colspan ="4"> <h2> Account Record </h2> </th>
+        <th colspan ="1"> <h2> Account Record </h2> </th>
         <th> id </th>
         <th> creationDate </th>
         <th> firstname </th>
