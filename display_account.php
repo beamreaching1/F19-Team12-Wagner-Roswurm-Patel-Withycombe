@@ -35,7 +35,7 @@ if(mysqli_connect_error())
 <!DOCTYPE html>
     <title>
         <head> Account Table Database Display </head>
-    <title>
+    </title>
 <body> 
     <table style="width=300px; line-hight:30px;" >
     <tr> 
@@ -49,17 +49,18 @@ if(mysqli_connect_error())
         <th> emailaddress </th>
         <th> username </th>
 
+    </tr>
     <?php
     while ($row = mysqli_fetch_assoc($result)){
     ?>
     <tr>
-        <td> <?php echo $row['id']; ?> <td>
-        <td> <?php echo $row['creation_date'];  ?> <td>
-        <td> <?php echo $row['first_name'];  ?> <td>
-        <td> <?php echo $row['last_name'];  ?> <td>
-        <td> <?php echo $row['phone_number'];  ?> <td>
-        <td> <?php echo $row['email_address'];  ?> <td>
-        <td> <?php echo $row['username'];  ?> <td>    
+        <td> <?php echo $row['id']; ?> </td>
+        <td> <?php echo $row['creation_date'];  ?> </td>
+        <td> <?php echo $row['first_name'];  ?> </td>
+        <td> <?php echo $row['last_name'];  ?> </td>
+        <td> <?php echo $row['phone_number'];  ?> </td>
+        <td> <?php echo $row['email_address'];  ?> </td>
+        <td> <?php echo $row['username'];  ?> </td>    
     </tr>
 
 <?php
