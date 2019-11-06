@@ -15,6 +15,8 @@ if($_SESSION['role'] != "a"){
 
 error_reporting(E_ALL);  // Turn on all errors, warnings and notices for easier debugging
 
+echo "Debug flag 1";
+
 // API request variables
 $endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';  // URL to call
 $version = '1.13.0';  // API version supported by your application
@@ -84,6 +86,8 @@ $apicall .= "$urlfilter";
 // Load the call and capture the document returned by eBay API
 $resp = simplexml_load_file($apicall);
 
+echo "Debug flag 2";
+
 // Check to see if the request was successful, else print an error
 if ($resp->ack == "Success") {
   $results = '';
@@ -103,11 +107,14 @@ else {
   $results .= "AppID for the Production environment.</h3>";
 }
 
+echo "Debug flag 3";
+
 ?>
 
-<!DOCTYPE html>
+
 
 <!-- Sample HTML page to display results -->
+<!DOCTYPE html>
 <html>
 <head>
 <title>eBay Search Results for <?php echo $query; ?></title>
