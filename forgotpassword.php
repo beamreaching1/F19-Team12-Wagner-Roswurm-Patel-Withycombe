@@ -46,9 +46,6 @@ if(isset($_POST['submit'])){
 
 	mysqli_close($connection);
 
-	$message = $user.$pass;
-			echo "<script type='text/javascript'>alert('$message');</script>";
-
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +95,7 @@ if(isset($_POST['submit'])){
                     </div>
                   
 					<div class="form-group">
-						<input type="submit" value="Change" class="btn float-right login_btn">
+						<input type="submit" name="submit" value="Change" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
