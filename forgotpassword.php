@@ -34,20 +34,18 @@ if(isset($_POST['submit'])){
 		$options = ['cost' => 10,];
 		$salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
 		//Lookup username in db for password hash
-		$lookup = "UPDATE Password_Hash SET ash = ''$salt_hash'' WHERE id = (SELECT id FROM Account WHERE username='$user')";
+		$lookup = "UPDATE Password_Hash SET ash = '$salt_hash' WHERE id = (SELECT id FROM Account WHERE username='$user')";
 
 		$result = $connection->query($lookup);
 
-		$message = "Error: ". $connection->error;
-				echo "<script type='text/javascript'>alert('$message');</script>";
-
-		$message = "Password change accpeted!";
-			echo "<script type='text/javascript'>alert('$message');</script>";
 
 		}
 	}
 
 	mysqli_close($connection);
+
+	$message = "Password change accpeted!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
 
 ?>
 
