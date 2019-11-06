@@ -26,11 +26,16 @@ if(mysqli_connect_error())
 
 ?>
 <!DOCTYPE html>
-    <title>
-        <head> Account Table Database Display </head>
-    </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <title>Admin Display</title>
+	<link rel="stylesheet" type="text/css" href="display.css">
+</head>
 <body> 
-    <table style="width=300px; align="center" border="1px line-hight:30px;" >
+    <table style="width=300px;" >
     <tr> 
 
         <th colspan ="4"> <h2> Account Record </h2> </th>
