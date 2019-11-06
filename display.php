@@ -48,6 +48,7 @@ if(mysqli_connect_error())
         <th scope="col">Phone #</th>
         <th scope="col">Email</th>
         <th scope="col">Username</th>
+        <th scope="col">Role</th>
       </tr>
     </thead>
     <tbody>
@@ -65,6 +66,7 @@ if(mysqli_connect_error())
         <?php echo "<td>".$row['phone_number']."</td>"; ?>
         <?php echo "<td>".$row['email_address']."</td>"; ?>
         <?php echo "<td>".$row['username']."</td>"; ?>
+        <?php echo "<td>".$row['rtype']."</td>"; ?>
     <?php echo "</tr>"; ?>
     </tbody>
   </table>
