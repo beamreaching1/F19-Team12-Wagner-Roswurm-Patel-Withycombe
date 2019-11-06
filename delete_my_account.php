@@ -1,5 +1,5 @@
 <?php
-//Allows any user level user to delete thier account//
+//Allows any user level user to delete their account//
 //Connect to database
 $host = "172.31.64.59";
 $dbuser = "team12";

@@ -30,19 +30,16 @@ if(isset($_POST['submit'])){
 		$user = mysqli_real_escape_string($connection, $_POST['user']);
 		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
+		$message = $user . $pass;
+				echo "<script type='text/javascript'>alert('$message');</script>";
+
 		//Generate hash of inputted password
 		$options = ['cost' => 10,];
 		$salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
 		//Lookup username in db for password hash
 		$lookup = "UPDATE Password_Hash SET ash = '$salt_hash' WHERE id = (SELECT id FROM Account WHERE username='$user')";
 
-		$connection->query($lookup);
-
-		$message = "Error: ". $connection->error;
-				echo "<script type='text/javascript'>alert('$message');</script>";
-
-		$message = "Password change accpeted!";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+		$result = $connection->query($lookup);
 
 		}
 	}
@@ -98,7 +95,7 @@ if(isset($_POST['submit'])){
                     </div>
                   
 					<div class="form-group">
-						<input type="submit" value="Change" class="btn float-right login_btn">
+						<input type="submit" name="submit" value="Change" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
