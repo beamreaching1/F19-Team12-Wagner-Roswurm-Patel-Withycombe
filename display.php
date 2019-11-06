@@ -57,15 +57,8 @@ if(mysqli_connect_error())
         $count++;
     ?>
       <tr>
-        <th scope="row"><?php echo $count; ?></th>
-        <td> </td>
-        <td> <?php echo $row['id']; ?> </td>
-        <td> <?php echo $row['creation_date'];  ?> </td>
-        <td> <?php echo $row['first_name'];  ?> </td>
-        <td> <?php echo $row['last_name'];  ?> </td>
-        <td> <?php echo $row['phone_number'];  ?> </td>
-        <td> <?php echo $row['email_address'];  ?> </td>
-        <td> <?php echo $row['username'];  ?> </td>    
+        <?php echo "<th scope=\"row\">".$count."</th>"; ?>
+        <?php echo "<td>".$row['id']."</td>"; ?>
     </tr>
     </tbody>
   </table>
