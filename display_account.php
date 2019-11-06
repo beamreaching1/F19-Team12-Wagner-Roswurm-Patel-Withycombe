@@ -19,15 +19,8 @@ if(mysqli_connect_error())
 
 } else {
 
-    $row = mysqli_query($connection, $sql);
-   /* $temp = $row['id'];
-    $temp1 = $row['creationDate'];
-    $temp2 = $row['firstname'];
-    $temp3 = $row['lastname'];
-    $temp4 = $row['phone number'];
-    $temp5 = $row['emailaddress'];
-    $temp6 = $row['username']; */
-
+    $result = $connection->query($sql);
+    
 }
 
 
