@@ -47,7 +47,7 @@ if(mysqli_connect_error())
     <?php
     
     while ($row = mysqli_fetch_assoc($result)){
-        echo $row;
+
     ?>
     <tr>
         <td> <?php echo $row['id']; ?> </td>
