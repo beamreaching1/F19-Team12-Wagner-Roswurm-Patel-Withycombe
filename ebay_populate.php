@@ -1,17 +1,17 @@
 <?php
 //Script to initially populate database
 
-session_start();
+//session_start();
 
-if($_SESSION['stig'] != "OK"){
+//if($_SESSION['stig'] != "OK"){
     //Redirect to login if not logged in
-    echo('<script>window.location="login.php"</script>');
-}
+    //echo('<script>window.location="login.php"</script>');
+//}
 
-if($_SESSION['role'] != "a"){
+//if($_SESSION['role'] != "a"){
     //Restricts script execution to admins only
-	echo('<script>window.location="homepage.php"</script>');
-}
+	//echo('<script>window.location="homepage.php"</script>');
+//}
 
 error_reporting(E_ALL);  // Turn on all errors, warnings and notices for easier debugging
 
@@ -79,7 +79,7 @@ $apicall .= "&SECURITY-APPNAME=$appid";
 $apicall .= "&GLOBAL-ID=$globalid";
 $apicall .= "&keywords=$safequery";
 $apicall .= "&paginationInput.entriesPerPage=3";
-$apicall .= $urlfilter;
+$apicall .= "$urlfilter";
 
 // Load the call and capture the document returned by eBay API
 $resp = simplexml_load_file($apicall);
