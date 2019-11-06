@@ -89,6 +89,18 @@ if(isset($_POST['submit'])){
 	<link rel="stylesheet" type="text/css" href="login.css">
 </head>
 	<body>
+		<div class="alert alert-danger alert-dismissible fade hide" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    			<span aria-hidden="true">&times;</span>
+  			</button>
+  			<strong>Your account is blacklisted.</strong> If you believe this to be a mistake please contact a system admininstrator at wagnerctw@gmail.com
+		</div>
+		<div class="alert alert-danger alert-dismissible fade hide" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    			<span aria-hidden="true">&times;</span>
+  			</button>
+  			<strong>Failed to Login!</strong>
+		</div>
 		<div class="container">
 			<div class="d-flex justify-content-center h-100">
 				<div class="card">
