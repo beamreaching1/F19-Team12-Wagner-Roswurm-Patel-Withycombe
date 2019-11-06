@@ -56,10 +56,10 @@ if(mysqli_connect_error())
     while ($row = mysqli_fetch_assoc($result)){
         $count++;
     ?>
-      <tr>
+      <?php echo "<tr>"; ?>
         <?php echo "<th scope=\"row\">".$count."</th>"; ?>
         <?php echo "<td>".$row['id']."</td>"; ?>
-    </tr>
+    <?php echo "</tr>"; ?>
     </tbody>
   </table>
 </div>
