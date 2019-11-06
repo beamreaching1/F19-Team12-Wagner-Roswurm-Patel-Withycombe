@@ -54,8 +54,9 @@ if(mysqli_connect_error())
     <tbody>
     <?php
     $count = 0;
-    while ($row = mysqli_fetch_array($result)){
+    while ($row = mysqli_fetch_assoc($result)){
         $count++;
+
     ?>
       <?php echo "<tr>"; ?>
         <?php echo "<th scope=\"row\">".$count."</th>"; ?>
@@ -67,7 +68,7 @@ if(mysqli_connect_error())
         <?php echo "<td>".$row['email_address']."</td>"; ?>
         <?php echo "<td>".$row['username']."</td>"; ?>
         <?php echo "<td>".$row['rtype']."</td>"; ?>
-    <?php echo "</tr>"; ?>
+    <?php echo "</tr>"; }?>
     </tbody>
   </table>
 </div>
@@ -75,7 +76,6 @@ if(mysqli_connect_error())
 
 
 <?php
-    } 
     mysqli_close($connection);
 ?>
     </tr>
