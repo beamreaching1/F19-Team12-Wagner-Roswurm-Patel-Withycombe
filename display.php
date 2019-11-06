@@ -73,7 +73,8 @@ if(mysqli_connect_error())
 
 
 <?php
-    } mysqli_close($connection);
+    } 
+    mysqli_close($connection);
 ?>
     </tr>
     </table>
