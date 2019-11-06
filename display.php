@@ -48,12 +48,13 @@ if(mysqli_connect_error())
         <th scope="col">Phone #</th>
         <th scope="col">Email</th>
         <th scope="col">Username</th>
+        <th scope="col">Role</th>
       </tr>
     </thead>
     <tbody>
     <?php
     $count = 0;
-    while ($row = mysqli_fetch_assoc($result)){
+    while ($row = mysqli_fetch_array($result)){
         $count++;
     ?>
       <?php echo "<tr>"; ?>
@@ -65,6 +66,7 @@ if(mysqli_connect_error())
         <?php echo "<td>".$row['phone_number']."</td>"; ?>
         <?php echo "<td>".$row['email_address']."</td>"; ?>
         <?php echo "<td>".$row['username']."</td>"; ?>
+        <?php echo "<td>".$row['rtype']."</td>"; ?>
     <?php echo "</tr>"; ?>
     </tbody>
   </table>
