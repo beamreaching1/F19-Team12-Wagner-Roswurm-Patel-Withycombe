@@ -105,7 +105,7 @@ else {
 
 ?>
 
-
+<!DOCTYPE html>
 
 <!-- Sample HTML page to display results -->
 <html>
