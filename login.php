@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 			$check = "SELECT driver_id FROM Black_List WHERE driver_id = (SELECT id FROM Account WHERE username = '$user')";
 			
 			if(($connection->query($check)->num_rows) > 0){
-				echo "<script type='text/javascript'>document.getElementById(\"blacklist\").style.display = block;</script>";	
+				echo "<script type='text/javascript'>document.getElementById(\"blacklist\").parentElement.style.display = block;</script>";	
 			} else {
 				$lookup = "SELECT rtype FROM Account WHERE username='$user'";
 
@@ -61,8 +61,7 @@ if(isset($_POST['submit'])){
 				header("Location: /homepage.php");
 			}
 		} else {
-			$message = "Failed to login!";
-			echo "<script type='text/javascript'>document.getElementById(\"fail\").style.display = block;</script>";
+			echo "<script type='text/javascript'>document.getElementById(\"fail\").parentElement.style.display = block;</script>";
 		}
 
 	}
