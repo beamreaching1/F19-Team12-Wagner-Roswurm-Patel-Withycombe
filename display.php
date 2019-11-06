@@ -34,27 +34,30 @@ if(mysqli_connect_error())
     <title>Admin Display</title>
 	<link rel="stylesheet" type="text/css" href="display.css">
 </head>
-<body> 
-    <table>
-    <tr> 
-
-        <th colspan ="1"> <h2> Account Record </h2> </th>
-        <th> id </th>
-        <th> creationDate </th>
-        <th> firstname </th>
-        <th> lastname </th>
-        <th> phonenumber </th>
-        <th> emailaddress </th>
-        <th> username </th>
-
-    </tr>
-    
+<body>
+<h3>Table Name</h3>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Creation</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone #</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+      </tr>
+    </thead>
+    <tbody>
     <?php
     
     while ($row = mysqli_fetch_assoc($result)){
 
     ?>
-    <tr>
+      <tr>
+        <th scope="row"></th>
         <td> </td>
         <td> <?php echo $row['id']; ?> </td>
         <td> <?php echo $row['creation_date'];  ?> </td>
@@ -64,6 +67,11 @@ if(mysqli_connect_error())
         <td> <?php echo $row['email_address'];  ?> </td>
         <td> <?php echo $row['username'];  ?> </td>    
     </tr>
+    </tbody>
+  </table>
+</div>
+    
+
 
 <?php
     } mysqli_close($connection);
