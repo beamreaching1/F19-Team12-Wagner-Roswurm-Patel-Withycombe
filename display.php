@@ -35,7 +35,7 @@ if(mysqli_connect_error())
 	<link rel="stylesheet" type="text/css" href="display.css">
 </head>
 <body> 
-    <table style="width=300px;" >
+    <table>
     <tr> 
 
         <th colspan ="1"> <h2> Account Record </h2> </th>
