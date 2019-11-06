@@ -35,7 +35,7 @@ if(mysqli_connect_error())
 <!DOCTYPE html>
     <title>
         <head> Account Table Database Display </head>
-    <title>
+    </title>
 <body> 
     <table style="width=300px; line-hight:30px;" >
     <tr> 
@@ -49,6 +49,7 @@ if(mysqli_connect_error())
         <th> emailaddress </th>
         <th> username </th>
 
+    </tr>
     <?php
     while ($row = mysqli_fetch_assoc($result)){
     ?>
