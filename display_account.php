@@ -30,7 +30,7 @@ if(mysqli_connect_error())
         <head> Account Table Database Display </head>
     </title>
 <body> 
-    <table style="width=300px; line-hight:30px;" >
+    <table style="width=300px; align="center" border="1px line-hight:30px;" >
     <tr> 
 
         <th colspan ="4"> <h2> Account Record </h2> </th>
