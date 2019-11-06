@@ -50,8 +50,11 @@ if(mysqli_connect_error())
         <th> username </th>
 
     </tr>
+    
     <?php
+    
     while ($row = mysqli_fetch_assoc($result)){
+        echo $row;
     ?>
     <tr>
         <td> <?php echo $row['id']; ?> </td>
