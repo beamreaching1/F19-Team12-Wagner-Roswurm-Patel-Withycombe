@@ -52,21 +52,20 @@ if(mysqli_connect_error())
     </thead>
     <tbody>
     <?php
-    
+    $count = 0;
     while ($row = mysqli_fetch_assoc($result)){
-
+        $count++;
     ?>
-      <tr>
-        <th scope="row"></th>
-        <td> </td>
-        <td> <?php echo $row['id']; ?> </td>
-        <td> <?php echo $row['creation_date'];  ?> </td>
-        <td> <?php echo $row['first_name'];  ?> </td>
-        <td> <?php echo $row['last_name'];  ?> </td>
-        <td> <?php echo $row['phone_number'];  ?> </td>
-        <td> <?php echo $row['email_address'];  ?> </td>
-        <td> <?php echo $row['username'];  ?> </td>    
-    </tr>
+      <?php echo "<tr>"; ?>
+        <?php echo "<th scope=\"row\">".$count."</th>"; ?>
+        <?php echo "<td>".$row['id']."</td>"; ?>
+        <?php echo "<td>".$row['creation_date']."</td>"; ?>
+        <?php echo "<td>".$row['first_name']."</td>"; ?>
+        <?php echo "<td>".$row['last_name']."</td>"; ?>
+        <?php echo "<td>".$row['phone_number']."</td>"; ?>
+        <?php echo "<td>".$row['email_address']."</td>"; ?>
+        <?php echo "<td>".$row['username']."</td>"; ?>
+    <?php echo "</tr>"; ?>
     </tbody>
   </table>
 </div>
