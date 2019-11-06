@@ -45,8 +45,7 @@ if(isset($_POST['submit'])){
 			$check = "SELECT driver_id FROM Black_List WHERE driver_id = (SELECT id FROM Account WHERE username = '$user')";
 			
 			if(($connection->query($check)->num_rows) > 0){
-				$message = "Your account is blacklisted. If you believe this to be a mistake please contact a system admininstrator.";
-				echo "<script type='text/javascript'>alert('$message');</script>";	
+				echo "<script type='text/javascript'>document.getElementById(\"blacklist\").style.display = block;</script>";	
 			} else {
 				$lookup = "SELECT rtype FROM Account WHERE username='$user'";
 
@@ -63,7 +62,7 @@ if(isset($_POST['submit'])){
 			}
 		} else {
 			$message = "Failed to login!";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+			echo "<script type='text/javascript'>document.getElementById(\"fail\").style.display = block;</script>";
 		}
 
 	}
@@ -89,17 +88,13 @@ if(isset($_POST['submit'])){
 	<link rel="stylesheet" type="text/css" href="login.css">
 </head>
 	<body>
-		<div class="alert alert-danger alert-dismissible fade hide" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    			<span aria-hidden="true">&times;</span>
-  			</button>
+		<div class="alert" id="blacklist" style="position: fixed;">
   			<strong>Your account is blacklisted.</strong> If you believe this to be a mistake please contact a system admininstrator at wagnerctw@gmail.com
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 		</div>
-		<div class="alert alert-danger alert-dismissible fade hide" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    			<span aria-hidden="true">&times;</span>
-  			</button>
-  			<strong>Failed to Login!</strong>
+		<div class="alert" id="fail" style="position: fixed;">
+  			<strong>Failed to login!</strong>
+			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 		</div>
 		<div class="container">
 			<div class="d-flex justify-content-center h-100">
