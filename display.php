@@ -54,7 +54,7 @@ if(mysqli_connect_error())
     <tbody>
     <?php
     $count = 0;
-    while ($row = mysqli_fetch_assoc($result)){
+    while ($row = mysqli_fetch_array($result)){
         $count++;
     ?>
       <?php echo "<tr>"; ?>
