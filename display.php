@@ -55,6 +55,7 @@ if(mysqli_connect_error())
 
     ?>
     <tr>
+        <td> </td>
         <td> <?php echo $row['id']; ?> </td>
         <td> <?php echo $row['creation_date'];  ?> </td>
         <td> <?php echo $row['first_name'];  ?> </td>
