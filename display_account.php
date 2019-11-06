@@ -53,13 +53,13 @@ if(mysqli_connect_error())
     while ($row = mysqli_fetch_assoc($result)){
     ?>
     <tr>
-        <td> <?php echo $row['id']; ?> <td>
-        <td> <?php echo $row['creation_date'];  ?> <td>
-        <td> <?php echo $row['first_name'];  ?> <td>
-        <td> <?php echo $row['last_name'];  ?> <td>
-        <td> <?php echo $row['phone_number'];  ?> <td>
-        <td> <?php echo $row['email_address'];  ?> <td>
-        <td> <?php echo $row['username'];  ?> <td>    
+        <td> <?php echo $row['id']; ?> </td>
+        <td> <?php echo $row['creation_date'];  ?> </td>
+        <td> <?php echo $row['first_name'];  ?> </td>
+        <td> <?php echo $row['last_name'];  ?> </td>
+        <td> <?php echo $row['phone_number'];  ?> </td>
+        <td> <?php echo $row['email_address'];  ?> </td>
+        <td> <?php echo $row['username'];  ?> </td>    
     </tr>
 
 <?php
