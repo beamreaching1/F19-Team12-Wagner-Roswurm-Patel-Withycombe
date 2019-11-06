@@ -123,10 +123,10 @@ if(isset($_POST['submit'])){
 							Don't have an account? <a href="create.html">Sign Up</a>
 						</div>
 						<div class="d-flex justify-content-center">
-							<a href="forgotpassword.html">Forgot your password? </a>
+							<a href="forgot.html">Forgot your password? </a>
 						</div>
 						<div class="d-flex justify-content-center">
-							<a href="forgotusername.html">Forgot your username? </a>
+							<a href="forgot.html">Forgot your username? </a>
 						</div>
 					</div>
 				</div>
