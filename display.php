@@ -52,12 +52,12 @@ if(mysqli_connect_error())
     </thead>
     <tbody>
     <?php
-    
+    $count = 0;
     while ($row = mysqli_fetch_assoc($result)){
-
+        $count++;
     ?>
       <tr>
-        <th scope="row"></th>
+        <th scope="row"><?php echo $count; ?></th>
         <td> </td>
         <td> <?php echo $row['id']; ?> </td>
         <td> <?php echo $row['creation_date'];  ?> </td>
