@@ -81,8 +81,6 @@ $apicall .= "&keywords=$safequery";
 $apicall .= "&paginationInput.entriesPerPage=3";
 $apicall .= "$urlfilter";
 
-echo phpinfo();
-
 // Load the call and capture the document returned by eBay API
 $resp = simplexml_load_file($apicall);
 
