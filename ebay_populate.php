@@ -73,6 +73,8 @@ function buildURLArray ($filterarray) {
 // Build the indexed item filter URL snippet
 buildURLArray($filterarray);
 
+echo "Debug flag 2";
+
 // Construct the findItemsByKeywords HTTP GET call
 $apicall = "$endpoint?";
 $apicall .= "OPERATION-NAME=findItemsByKeywords";
@@ -83,10 +85,12 @@ $apicall .= "&keywords=$safequery";
 $apicall .= "&paginationInput.entriesPerPage=3";
 $apicall .= "$urlfilter";
 
+echo "Debug flag 2.5";
+
 // Load the call and capture the document returned by eBay API
 $resp = simplexml_load_file($apicall);
 
-echo "Debug flag 2";
+echo "Debug flag 3";
 
 // Check to see if the request was successful, else print an error
 if ($resp->ack == "Success") {
@@ -107,7 +111,7 @@ else {
   $results .= "AppID for the Production environment.</h3>";
 }
 
-echo "Debug flag 3";
+echo "Debug flag 4";
 
 ?>
 
