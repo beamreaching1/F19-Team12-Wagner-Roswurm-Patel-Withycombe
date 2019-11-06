@@ -37,10 +37,9 @@ if(mysqli_connect_error())
         <head> Account Table Database Display </head>
     <title>
 <body> 
-    <table align="center" border="1px" style="width=300px; line-hight:30px;" >
+    <table style="width=300px; line-hight:30px;" >
     <tr> 
 
-    <t>
         <th colspan ="4"> <h2> Account Record </h2> </th>
         <th> id </th>
         <th> creationDate </th>
@@ -49,7 +48,6 @@ if(mysqli_connect_error())
         <th> phonenumber </th>
         <th> emailaddress </th>
         <th> username </th>
-    </t>
 
     <?php
     while ($row = mysqli_fetch_assoc($result)){
