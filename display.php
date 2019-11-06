@@ -59,6 +59,12 @@ if(mysqli_connect_error())
       <?php echo "<tr>"; ?>
         <?php echo "<th scope=\"row\">".$count."</th>"; ?>
         <?php echo "<td>".$row['id']."</td>"; ?>
+        <?php echo "<td>".$row['creation_date']."</td>"; ?>
+        <?php echo "<td>".$row['first_name']."</td>"; ?>
+        <?php echo "<td>".$row['last_name']."</td>"; ?>
+        <?php echo "<td>".$row['phone_number']."</td>"; ?>
+        <?php echo "<td>".$row['email_address']."</td>"; ?>
+        <?php echo "<td>".$row['username']."</td>"; ?>
     <?php echo "</tr>"; ?>
     </tbody>
   </table>
