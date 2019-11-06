@@ -19,15 +19,8 @@ if(mysqli_connect_error())
 
 } else {
 
-    $row = mysqli_query($connection, $sql);
-   /* $temp = $row['id'];
-    $temp1 = $row['creationDate'];
-    $temp2 = $row['firstname'];
-    $temp3 = $row['lastname'];
-    $temp4 = $row['phone number'];
-    $temp5 = $row['emailaddress'];
-    $temp6 = $row['username']; */
-
+    $result = $connection->query($sql);
+    
 }
 
 
@@ -37,7 +30,7 @@ if(mysqli_connect_error())
         <head> Account Table Database Display </head>
     </title>
 <body> 
-    <table style="width=300px; line-hight:30px;" >
+    <table style="width=300px; align="center" border="1px line-hight:30px;" >
     <tr> 
 
         <th colspan ="4"> <h2> Account Record </h2> </th>
@@ -54,7 +47,7 @@ if(mysqli_connect_error())
     <?php
     
     while ($row = mysqli_fetch_assoc($result)){
-        echo $row;
+
     ?>
     <tr>
         <td> <?php echo $row['id']; ?> </td>
