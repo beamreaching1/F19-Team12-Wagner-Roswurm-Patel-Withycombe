@@ -11,6 +11,7 @@ $connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
 
 $sql = "SELECT * FROM Account";
 
+
 if(mysqli_connect_error())
 {
     echo "A database connection error has occured. 
