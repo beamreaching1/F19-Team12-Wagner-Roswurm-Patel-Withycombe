@@ -1,17 +1,17 @@
 <?php
 //Script to initially populate database
 
-//session_start();
+session_start();
 
-//if($_SESSION['stig'] != "OK"){
-    //Redirect to login if not logged in
-    //echo('<script>window.location="login.php"</script>');
-//}
+if($_SESSION['stig'] != "OK"){
+  //Redirect to login if not logged in
+  echo('<script>window.location="login.php"</script>');
+}
 
-//if($_SESSION['role'] != "a"){
-    //Restricts script execution to admins only
-	//echo('<script>window.location="homepage.php"</script>');
-//}
+if($_SESSION['role'] != "a"){
+  //Restricts script execution to admins only
+	echo('<script>window.location="homepage.php"</script>');
+}
 
 error_reporting(E_ALL);  // Turn on all errors, warnings and notices for easier debugging
 
@@ -81,8 +81,6 @@ $apicall .= "&keywords=$safequery";
 $apicall .= "&paginationInput.entriesPerPage=3";
 $apicall .= "$urlfilter";
 
-echo phpinfo();
-
 // Load the call and capture the document returned by eBay API
 $resp = simplexml_load_file($apicall);
 
@@ -94,9 +92,12 @@ if ($resp->ack == "Success") {
     $pic   = $item->galleryURL;
     $link  = $item->viewItemURL;
     $title = $item->title;
+    $price = $item->sellingStatus->convertedCurrentPrice;
+    $category = $item->primaryCategory->categoryName;
+    $subtitle = $item->subtitle;
 
     // For each SearchResultItem node, build a link and append it to $results
-    $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td></tr>";
+    $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td><td>\$$price</td><td>$category</td><td>$subtitle</td></tr>";
   }
 }
 // If the response does not indicate 'Success,' print an error
