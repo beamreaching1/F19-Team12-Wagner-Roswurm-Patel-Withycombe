@@ -93,11 +93,15 @@ if ($resp->ack == "Success") {
     $link  = $item->viewItemURL;
     $title = $item->title;
     $price = $item->sellingStatus->convertedCurrentPrice;
-    $category = $item->primaryCategory->categoryName;
-    $subtitle = $item->subtitle;
+    $category1 = $item->primaryCategory->categoryName;
+    $category2 = $item->secondaryCategory->categoryName;
+
+    //Insert into database
+    
+
 
     // For each SearchResultItem node, build a link and append it to $results
-    $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td><td>\$$price</td><td>$category</td><td>$subtitle</td></tr>";
+    $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td><td>\$$price</td><td>$category1</td><td>$category2</td></tr>";
   }
 }
 // If the response does not indicate 'Success,' print an error
