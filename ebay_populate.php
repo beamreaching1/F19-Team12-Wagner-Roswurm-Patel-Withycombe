@@ -89,19 +89,14 @@ if ($resp->ack == "Success") {
   $results = '';
   // If the response was loaded, parse it and build links
   foreach($resp->searchResult->item as $item) {
+    $title = $item->title;
     $pic   = $item->galleryURL;
     $link  = $item->viewItemURL;
-    $title = $item->title;
     $price = $item->sellingStatus->convertedCurrentPrice;
     $category1 = $item->primaryCategory->categoryName;
-    $category2 = $item->secondaryCategory->categoryName;
-
-    //Insert into database
-    
-
 
     // For each SearchResultItem node, build a link and append it to $results
-    $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td><td>\$$price</td><td>$category1</td><td>$category2</td></tr>";
+    $results .= "<tr><td><img src=\"$pic\"></td><td><a href=\"$link\">$title</a></td><td>\$$price</td><td>$category1</td></tr>";
   }
 }
 // If the response does not indicate 'Success,' print an error
@@ -109,6 +104,45 @@ else {
   $results  = "<h3>Oops! The request was not successful. Make sure you are using a valid ";
   $results .= "AppID for the Production environment.</h3>";
 }
+
+//Insert results into database
+$host = "172.31.64.59";
+$dbuser = "team12";
+$dbpass = "hG827vnymmBh5CVkTSZ3";
+$dbname = "team12";
+
+//Establish SQL connection
+$connection = new mysqli($host,$dbuser,$dbpass,$dbname);
+
+if(mysqli_connect_error())
+{
+	echo "A database connection error has occured. 
+	Please try again later or contact your system 
+	administrator.<br \>\n";
+} else {
+
+  foreach($resp->searchResult->item as $item){
+    $title = $item->title;
+    $pic   = $item->galleryURL;
+    $price = $item->sellingStatus->convertedCurrentPrice;
+    $category1 = $item->primaryCategory->categoryName;
+    $quantity = rand(1,100);
+  
+    $store_listing = "INSERT INTO Item(item_name, item_pic, item_cost, item_category, item_count) 
+    VALUES('$title', '$pic', '$price', '$category1', '$quantity')";
+
+    if($connection->query($store_listing)){
+      echo "Listing has been stored successfully!"
+    } else {
+      echo "Error: ". $store_listing ."
+      ". $connection->error;
+    }
+
+  }
+}
+
+mysqli_close($connection);
+
 
 ?>
 

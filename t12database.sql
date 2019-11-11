@@ -76,10 +76,12 @@ CREATE TABLE Transaction_List (
 );
 
 CREATE TABLE Item (
-    item_id INT NOT NULL,
-    item_cost INT NOT NULL,
-    item_count INT NOT NULL,
-    PRIMARY KEY (item_id)
+    item_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    item_name VARCHAR(256) NOT NULL,
+    item_pic VARCHAR(256) NOT NULL,
+    item_cost DECIMAL NOT NULL,
+    item_category VARCHAR(100),
+    item_count INT NOT NULL
 );
 
 CREATE TABLE Single_Transaction (
