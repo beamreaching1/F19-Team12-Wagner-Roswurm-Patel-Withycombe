@@ -16,9 +16,8 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
-  if(isset($_POST)){
-    //$tableName = mysqli_real_escape_string($connection, $_POST['select']);
-    $tableName = "Account";
+  if(!empty($_POST)){
+    $tableName = mysqli_real_escape_string($connection, $_POST['select']);
   }else {
     $tableName = "Account";
   }
