@@ -48,10 +48,10 @@ if(mysqli_connect_error())
 <body>
 <form action="" method="POST">
   <select name="select" id="select">
-    <option value="volvo">Account</option>
-    <option value="saab">Driver</option>
-    <option value="mercedes">Item</option>
-    <option value="audi">msg</option>
+    <option value="Account">Account</option>
+    <option value="Driver">Driver</option>
+    <option value="Item">Item</option>
+    <option value="msg">msg</option>
   </select>
   <input type="submit">
 </form>
