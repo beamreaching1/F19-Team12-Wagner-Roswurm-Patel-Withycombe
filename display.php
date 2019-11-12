@@ -52,6 +52,7 @@ if(mysqli_connect_error())
     <option value="Driver">Driver</option>
     <option value="Item">Item</option>
     <option value="msg">msg</option>
+    <option value="Black_List">Blacklist</option>
   </select>
   <input type="submit">
 </form>
