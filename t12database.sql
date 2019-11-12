@@ -79,7 +79,7 @@ CREATE TABLE Item (
     item_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(256) NOT NULL,
     item_pic VARCHAR(256) NOT NULL,
-    item_cost DECIMAL NOT NULL,
+    item_cost DECIMAL(10,2) NOT NULL,
     item_category VARCHAR(100),
     item_count INT NOT NULL
 );
