@@ -17,7 +17,8 @@ if(mysqli_connect_error())
 
 } else {
   if(isset($_POST)){
-    $tableName = mysqli_real_escape_string($connection, $_POST['select']);
+    //$tableName = mysqli_real_escape_string($connection, $_POST['select']);
+    $tableName = "Account";
   }else {
     $tableName = "Account";
   }
