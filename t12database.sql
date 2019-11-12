@@ -61,11 +61,6 @@ CREATE TABLE Sponsor_List (
     FOREIGN KEY (company_id) REFERENCES Company(company_id)
 );
 
-CREATE TABLE Catalog_List (
-    item_id INT NOT NULL,
-    FOREIGN KEY (item_id) REFERENCES Item(item_id)
-);
-
 CREATE TABLE Black_List (
     driver_id INT NOT NULL,
 );
@@ -82,6 +77,11 @@ CREATE TABLE Item (
     item_cost DECIMAL(10,2) NOT NULL,
     item_category VARCHAR(100),
     item_count INT NOT NULL
+);
+
+CREATE TABLE Catalog_List (
+    item_id INT NOT NULL,
+    FOREIGN KEY (item_id) REFERENCES Item(item_id)
 );
 
 CREATE TABLE Single_Transaction (
