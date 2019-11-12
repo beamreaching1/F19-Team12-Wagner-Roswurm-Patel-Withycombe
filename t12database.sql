@@ -16,18 +16,6 @@ CREATE TABLE Password_Hash (
     FOREIGN KEY (id) REFERENCES Account(id)
 );
 
-CREATE TABLE Edit_Permissions_List (
-    id INT NOT NULL PRIMARY KEY,
-    FOREIGN KEY (id) REFERENCES Account(id)
-);
-
-CREATE TABLE Login_Token (
-    generated_token VARCHAR(60),
-    creation_date DATE,
-    id INT NOT NULL,
-    FOREIGN KEY (id) REFERENCES Account(id)
-);
-
 CREATE TABLE Admin (
     id INT NOT NULL,
     FOREIGN KEY (id) REFERENCES Account(id)
