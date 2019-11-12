@@ -9,8 +9,6 @@ $dbname = "team12";
 //Establish SQL connection
 $connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
 
-$sql = "SELECT * FROM Account";
-
 if(mysqli_connect_error())
 {
     echo "A database connection error has occured. 
@@ -18,8 +16,16 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
+  $sql = 'SHOW COLUMNS FROM Account';
+  $res = $connection->query($sql);
+  
+  while($row = $res->fetch_assoc()){
+      $cols[] = $row['Field'];
+  }
 
-    $result = $connection->query($sql);
+  $sql = "SELECT * FROM Account";
+
+  $result = $connection->query($sql);
     
 }
 
@@ -41,14 +47,9 @@ if(mysqli_connect_error())
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">ID</th>
-        <th scope="col">Creation</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Phone #</th>
-        <th scope="col">Email</th>
-        <th scope="col">Username</th>
-        <th scope="col">Role</th>
+        <?php foreach($cols as $colName){
+          echo "<th scope=\"col\">".$colName."</th>";
+        } ?>
       </tr>
     </thead>
     <tbody>
