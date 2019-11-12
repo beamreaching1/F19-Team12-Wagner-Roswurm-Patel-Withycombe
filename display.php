@@ -16,8 +16,11 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
-  $tableName = "Account";
-  $tableName = mysqli_real_escape_string($connection, $_POST['select']);
+  if(isset($_POST)){
+    $tableName = mysqli_real_escape_string($connection, $_POST['select']);
+  }else {
+    $tableName = "Account";
+  }
   $sql = "SHOW COLUMNS FROM $tableName";
   $res = $connection->query($sql);
   
