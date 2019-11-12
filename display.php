@@ -19,6 +19,8 @@ if(mysqli_connect_error())
 
 } else {
 
+    $cols = array('#','a', 'b', 'c', 'd', 'e', 'f', 'g');
+
     $result = $connection->query($sql);
     
 }
@@ -41,14 +43,9 @@ if(mysqli_connect_error())
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">ID</th>
-        <th scope="col">Creation</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Phone #</th>
-        <th scope="col">Email</th>
-        <th scope="col">Username</th>
-        <th scope="col">Role</th>
+        <?php foreach($cols as $colName){
+          echo "<th scope=\"col\">".$colName."</th>";
+        } ?>
       </tr>
     </thead>
     <tbody>
