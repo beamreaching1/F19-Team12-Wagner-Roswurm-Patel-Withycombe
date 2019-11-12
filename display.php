@@ -9,8 +9,6 @@ $dbname = "team12";
 //Establish SQL connection
 $connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
 
-$sql = "SELECT * FROM Account";
-
 if(mysqli_connect_error())
 {
     echo "A database connection error has occured. 
@@ -18,10 +16,21 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
+  if(!empty($_POST)){
+    $tableName = mysqli_real_escape_string($connection, $_POST['select']);
+  }else {
+    $tableName = "Account";
+  }
+  $sql = "SHOW COLUMNS FROM $tableName";
+  $res = $connection->query($sql);
+  
+  while($row = $res->fetch_assoc()){
+      $cols[] = $row['Field'];
+  }
 
-    $cols = array('#','a', 'b', 'c', 'd', 'e', 'f', 'g');
+  $sql = "SELECT * FROM $tableName";
 
-    $result = $connection->query($sql);
+  $result = $connection->query($sql);
     
 }
 
@@ -37,7 +46,17 @@ if(mysqli_connect_error())
 	<link rel="stylesheet" type="text/css" href="display.css">
 </head>
 <body>
-<h3>Table Name</h3>
+<form action="" method="POST">
+  <select name="select" id="select">
+    <option value="Account">Account</option>
+    <option value="Driver">Driver</option>
+    <option value="Item">Item</option>
+    <option value="msg">msg</option>
+    <option value="Black_List">Blacklist</option>
+  </select>
+  <input type="submit">
+</form>
+<h3><?php echo $tableName;?></h3>
 <div class="table-responsive">
   <table class="table">
     <thead>

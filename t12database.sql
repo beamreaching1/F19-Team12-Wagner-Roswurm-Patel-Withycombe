@@ -16,18 +16,6 @@ CREATE TABLE Password_Hash (
     FOREIGN KEY (id) REFERENCES Account(id)
 );
 
-CREATE TABLE Edit_Permissions_List (
-    id INT NOT NULL PRIMARY KEY,
-    FOREIGN KEY (id) REFERENCES Account(id)
-);
-
-CREATE TABLE Login_Token (
-    generated_token VARCHAR(60),
-    creation_date DATE,
-    id INT NOT NULL,
-    FOREIGN KEY (id) REFERENCES Account(id)
-);
-
 CREATE TABLE Admin (
     id INT NOT NULL,
     FOREIGN KEY (id) REFERENCES Account(id)
@@ -61,11 +49,6 @@ CREATE TABLE Sponsor_List (
     FOREIGN KEY (company_id) REFERENCES Company(company_id)
 );
 
-CREATE TABLE Catalog_List (
-    item_id INT NOT NULL,
-    FOREIGN KEY (item_id) REFERENCES Item(item_id)
-);
-
 CREATE TABLE Black_List (
     driver_id INT NOT NULL,
 );
@@ -79,9 +62,14 @@ CREATE TABLE Item (
     item_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(256) NOT NULL,
     item_pic VARCHAR(256) NOT NULL,
-    item_cost DECIMAL NOT NULL,
+    item_cost DECIMAL(10,2) NOT NULL,
     item_category VARCHAR(100),
     item_count INT NOT NULL
+);
+
+CREATE TABLE Catalog_List (
+    item_id INT NOT NULL,
+    FOREIGN KEY (item_id) REFERENCES Item(item_id)
 );
 
 CREATE TABLE Single_Transaction (

@@ -29,7 +29,7 @@ $filterarray =
   array(
     array(
     'name' => 'MaxPrice',
-    'value' => '25',
+    'value' => '500',
     'paramName' => 'Currency',
     'paramValue' => 'USD'),
     array(
