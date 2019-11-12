@@ -9,8 +9,6 @@ $dbname = "team12";
 //Establish SQL connection
 $connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
 
-$sql = "SELECT * FROM Account";
-
 if(mysqli_connect_error())
 {
     echo "A database connection error has occured. 
@@ -25,7 +23,9 @@ if(mysqli_connect_error())
       $cols[] = $row['Field'];
   }
 
-    $result = $connection->query($sql);
+  $sql = "SELECT * FROM Account";
+
+  $result = $connection->query($sql);
     
 }
 
