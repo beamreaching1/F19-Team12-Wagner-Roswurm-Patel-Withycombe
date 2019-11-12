@@ -132,7 +132,7 @@ if(mysqli_connect_error())
     VALUES('$title', '$pic', '$price', '$category1', '$quantity')";
 
     if($connection->query($store_listing)){
-      echo "Listing has been stored successfully!"
+      echo "Listing has been stored successfully!";
     } else {
       echo "Error: ". $store_listing ."
       ". $connection->error;
