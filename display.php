@@ -16,14 +16,16 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
-  $sql = 'SHOW COLUMNS FROM Account';
+  $tableName = "Account";
+  $tableName = mysqli_real_escape_string($connection, $_POST['select']);
+  $sql = "SHOW COLUMNS FROM $tableName";
   $res = $connection->query($sql);
   
   while($row = $res->fetch_assoc()){
       $cols[] = $row['Field'];
   }
 
-  $sql = "SELECT * FROM Account";
+  $sql = "SELECT * FROM $tableName";
 
   $result = $connection->query($sql);
     
@@ -41,7 +43,16 @@ if(mysqli_connect_error())
 	<link rel="stylesheet" type="text/css" href="display.css">
 </head>
 <body>
-<h3>Table Name</h3>
+<form action="" method="POST">
+  <select name="select" id="select">
+    <option value="volvo">Account</option>
+    <option value="saab">Driver</option>
+    <option value="mercedes">Item</option>
+    <option value="audi">msg</option>
+  </select>
+  <input type="submit">
+</form>
+<h3><?php echo $tableName;?></h3>
 <div class="table-responsive">
   <table class="table">
     <thead>
