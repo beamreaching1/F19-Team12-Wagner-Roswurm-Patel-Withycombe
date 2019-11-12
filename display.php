@@ -18,8 +18,12 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
-
-    $cols = array('#','a', 'b', 'c', 'd', 'e', 'f', 'g');
+  $sql = 'SHOW COLUMNS FROM Account';
+  $res = $connection->query($sql);
+  
+  while($row = $res->fetch_assoc()){
+      $cols[] = $row['Field'];
+  }
 
     $result = $connection->query($sql);
     
