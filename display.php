@@ -77,7 +77,11 @@ if(mysqli_connect_error())
       <?php echo "<tr>"; ?>
         <?php echo "<th scope=\"row\">".$count."</th>"; ?>
         <?php foreach($cols as $colName){
-          echo "<td>".$row[$colName]."</td>";
+          if($colName == "item_pic"){
+            echo "<td><img src=\"".$row[$colName]."\"></td>";
+          }else {
+            echo "<td>".$row[$colName]."</td>";
+          }
         }
          ?>
     <?php echo "</tr>"; }?>
