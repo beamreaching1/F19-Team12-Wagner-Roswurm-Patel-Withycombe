@@ -7,6 +7,11 @@ if($_SESSION['stig'] != "OK"){
 	echo('<script>window.location="login.php"</script>');		
 }
 
+if($_SESSION['role'] == "a"){
+  echo('<script>document.getElementById("trend").innerHTML = "Suite";
+                document.getElementById("trend").href = "display.php"</script>');
+}
+
 ?>
 <!DOCTYPE html>
 

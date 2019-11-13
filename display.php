@@ -1,5 +1,16 @@
 <?php
 
+#Check if the user is logged in (Put this php code in all of your documents that require login)
+session_start();
+
+if($_SESSION['stig'] != "OK"){
+	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
+	echo('<script>window.location="login.php"</script>');
+}
+if($_SESSION['role'] != "a"){
+	echo('<script>window.location="homepage.php"</script>');
+}
+
 //Pseudocode for database connection
 $host = "172.31.64.59";
 $dbuser = "team12";
