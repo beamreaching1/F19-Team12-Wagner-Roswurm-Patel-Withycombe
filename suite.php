@@ -1,3 +1,22 @@
+<?php
+#Check if the user is logged in (Put this php code in all of your documents that require login)
+session_start();
+
+if($_SESSION['stig'] != "OK"){
+	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
+	echo('<script>window.location="login.php"</script>');		
+}
+
+if($_SESSION['role'] != "a"){
+	echo('<script>window.location="homepage.php"</script>');
+}
+
+if($_SESSION['role'] == "a"){
+  echo('<script>document.getElementById("trend").innerHTML = "Suite";
+                document.getElementById("trend").href = "suite.php"</script>');
+}
+
+?>
 <!DOCTYPE html>
 
 <html>
@@ -14,6 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="adminsuite.css">
 </head>
 <body>
+<div id="nav-placeholder"></div>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -21,13 +41,15 @@
 				<h3>Admin Suite</h3>
 			</div>
 			<div class="card-body">
-				<form enctype="multipart/form-data" action="register.php" method="POST">
-					<h5 style="color: rgb(33, 141, 235)">Input More Text Here</h5>
-                    <div class="input-group form-group">
-				</form>
+				<p>Links n stuff</p>
 			</div>
 		</div>
 	</div>
 </div>
 </body>
+<script>
+    $(function(){
+      $("#nav-placeholder").load("nav.html");
+    });
+</script>
 </html>

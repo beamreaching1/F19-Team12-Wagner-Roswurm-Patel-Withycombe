@@ -9,7 +9,7 @@ if($_SESSION['stig'] != "OK"){
 
 if($_SESSION['role'] == "a"){
   echo('<script>document.getElementById("trend").innerHTML = "Suite";
-                document.getElementById("trend").href = "display.php"</script>');
+                document.getElementById("trend").href = "suite.php"</script>');
 }
 
 ?>
@@ -27,9 +27,7 @@ if($_SESSION['role'] == "a"){
 </head>
 <body>
 
-<div id="nav-placeholder">
-    
-</div>
+<div id="nav-placeholder"></div>
 
 <div id="carousel" class="carousel slide" data-ride="carousel">
 
