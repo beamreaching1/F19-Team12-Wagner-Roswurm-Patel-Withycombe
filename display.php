@@ -46,6 +46,7 @@ if(mysqli_connect_error())
 	<link rel="stylesheet" type="text/css" href="display.css">
 </head>
 <body>
+<div id="nav-placeholder"></div>
 <form action="" method="POST">
   <select name="select" id="select">
     <option value="Account">Account</option>
@@ -97,4 +98,9 @@ if(mysqli_connect_error())
     </tr>
     </table>
 </body>
+<script>
+    $(function(){
+      $("#nav-placeholder").load("nav.html");
+    });
+</script>
 </html>
