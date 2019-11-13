@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <nav id="brand" class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="col-xs-4 navbar-brand" href="homepage.php" style="margin-right: 0px;">Team12</a>  
   <div class="nav-item active col-xs-4">
