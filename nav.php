@@ -19,9 +19,3 @@
       </div></li>
   </ul>
 </nav>
-<?php
-if){
-	echo('<script>document.getElementById("trend").innerHTML = "Suite";
-				  document.getElementById("trend").href = "suite.php"</script>');
-}
-?>
