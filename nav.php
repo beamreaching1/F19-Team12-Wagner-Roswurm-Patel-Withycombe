@@ -15,12 +15,12 @@
         <a class="nav-link" href="logout.php">Logout</a>
       </div></li>
       <li><div class="nav-item">
-        <a class="nav-link" id="trend" href="#">Trending</a>
+        <a class="nav-link" id="trend" href="<?php if($_SESSION['role'] == "a"){echo "suite.php\">Suite";}else{echo "trending.php\">Trending";}?></a>
       </div></li>
   </ul>
 </nav>
 <?php
-if($_SESSION['role'] == "a"){
+if){
 	echo('<script>document.getElementById("trend").innerHTML = "Suite";
 				  document.getElementById("trend").href = "suite.php"</script>');
 }
