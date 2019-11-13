@@ -62,7 +62,7 @@ if($_SESSION['stig'] != "OK"){
 
 <script>
     $(function(){
-      $("#nav-placeholder").load("nav.html");
+      $("#nav-placeholder").load("nav.php");
     });
 </script>
 
