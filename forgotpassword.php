@@ -63,6 +63,7 @@ if(isset($_POST['submit'])){
 	<link rel="stylesheet" type="text/css" href="forgotpassword.css">
 </head>
 <body>
+<div id="nav-placeholder"></div>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -103,4 +104,9 @@ if(isset($_POST['submit'])){
 	</div>
 </div>
 </body>
+<script>
+    $(function(){
+      $("#nav-placeholder").load("nav.html");
+    });
+</script>
 </html>

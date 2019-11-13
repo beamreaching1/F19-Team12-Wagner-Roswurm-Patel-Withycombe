@@ -6,12 +6,6 @@ if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
 	echo('<script>window.location="login.php"</script>');		
 }
-
-if($_SESSION['role'] == "a"){
-  echo('<script>document.getElementById("trend").innerHTML = "Suite";
-                document.getElementById("trend").href = "suite.php"</script>');
-}
-
 ?>
 <!DOCTYPE html>
 

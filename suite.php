@@ -10,12 +10,6 @@ if($_SESSION['stig'] != "OK"){
 if($_SESSION['role'] != "a"){
 	echo('<script>window.location="homepage.php"</script>');
 }
-
-if($_SESSION['role'] == "a"){
-  echo('<script>document.getElementById("trend").innerHTML = "Suite";
-                document.getElementById("trend").href = "suite.php"</script>');
-}
-
 ?>
 <!DOCTYPE html>
 
