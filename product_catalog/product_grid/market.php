@@ -5,7 +5,7 @@ session_start();
 
 if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
-	echo('<script>window.location="/login.php"</script>');
+	echo('<script>window.location="../../login.php"</script>');
 }
 
 //Pseudocode for database connection
