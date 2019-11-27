@@ -62,7 +62,7 @@ if(mysqli_connect_error())
 	<!-- Bootstrap css -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- Style css -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="market.css">
 </head>
 <body>
 
