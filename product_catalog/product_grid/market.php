@@ -8,6 +8,16 @@ if($_SESSION['stig'] != "OK"){
 	echo('<script>window.location="../../login.php"</script>');
 }
 
+if(!isset($_SESSION['cart'])){
+	$_SESSION['cart'] = array();
+}
+
+if (isset($_GET['item'])) {
+    array_push($_SESSION['cart'], $_GET['item']);
+}
+
+echo $_SESSION['cart'];
+
 //Pseudocode for database connection
 $host = "172.31.64.59";
 $dbuser = "team12";
@@ -93,8 +103,13 @@ if(mysqli_connect_error())
 				echo "<h5 class=\"text-center\">".round($row[$colName]*100)." Points</h5>";
 			}
 		}
-			echo "<a href=\"#\" class=\"btn buy\">BUY</a>" ;
 
+		foreach($cols as $colName){			
+			if($colName == "item_id"){
+				echo "<a href=\"market.php?item=".$row[$colName]."\" class=\"btn buy\">Add to Cart</a>" ;
+			}
+		}
+		
 		echo "</div>";
 	}
     mysqli_close($connection);
