@@ -35,7 +35,9 @@ if($_SESSION['role'] != "a"){
 				<h3>Admin Suite</h3>
 			</div>
 			<div class="card-body">
-				<p>Links n stuff</p>
+				<a href="display.php">System Information</a>
+				<a href="banuser.html">Ban a User</a>
+				<a href="forgotpassword.php">Reset a Password</a>
 			</div>
 		</div>
 	</div>
