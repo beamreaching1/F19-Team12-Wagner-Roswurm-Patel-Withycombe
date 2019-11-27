@@ -1,3 +1,49 @@
+<?php
+
+#Check if the user is logged in (Put this php code in all of your documents that require login)
+session_start();
+
+if($_SESSION['stig'] != "OK"){
+	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
+	echo('<script>window.location="login.php"</script>');
+}
+
+//Pseudocode for database connection
+$host = "172.31.64.59";
+$dbuser = "team12";
+$dbpass = "hG827vnymmBh5CVkTSZ3";
+$dbname = "team12";
+
+//Establish SQL connection
+$connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
+
+if(mysqli_connect_error())
+{
+    echo "A database connection error has occured. 
+    Please try again later or contact your system 
+    administrator.<br \>\n";
+
+} else {
+  if(!empty($_POST)){
+    $tableName = mysqli_real_escape_string($connection, $_POST['select']);
+  }else {
+    $tableName = "Account";
+  }
+  $sql = "SHOW COLUMNS FROM $tableName";
+  $res = $connection->query($sql);
+  
+  while($row = $res->fetch_assoc()){
+      $cols[] = $row['Field'];
+  }
+
+  $sql = "SELECT * FROM $tableName";
+
+  $result = $connection->query($sql);
+    
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +54,55 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+
+	<div id="nav-placeholder"></div>
+	
+	<?php
+    $count = 0;
+	while ($row = mysqli_fetch_assoc($result)){
+        $count++;
+
+    ?>
+
+
+
+	<?php echo "<div class=\"col-md-4 product-grid\">"; ?>
+		<?php echo "<div class=\"image\">;";
+			echo "<a href=\"#\">";?>
+        <?php foreach($cols as $colName){
+          if($colName == "item_pic"){
+            echo "<img src=\"".$row[$colName]."\" class=\"w-100\">";
+          }
+        
+         ?>
+	<?php 
+			echo "<div class=\"overlay\">
+							<div class=\"detail\">View Details</div>
+						</div>
+					</a>
+				</div>"; 
+			
+			if($colName == "item_name"){
+				echo "<h5 class=\"text-center\">".$row[$colName]."</h5>";
+			}
+
+			if($colName == "item_cost"){
+				echo "<h5 class=\"text-center\">".round($row[$colName]*100)."</h5>";
+			}
+			echo "<a href=\"#\" class=\"btn buy\">BUY</a>" ;
+		}
+	}?>
+    </tbody>
+  </table>
+</div>
+    
+
+
+<?php
+    mysqli_close($connection);
+?>
+
+
 	<div class="container">
 		<h1 class="text-center">Safe Driving Rewards Catalgue</h1>
 		<hr>
@@ -113,4 +208,11 @@
 
 	</div>
 </body>
+
+<script>
+    $(function(){
+      $("#nav-placeholder").load("nav.php");
+    });
+</script>
+
 </html>
