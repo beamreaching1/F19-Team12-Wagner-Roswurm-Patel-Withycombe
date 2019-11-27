@@ -67,7 +67,7 @@ if(mysqli_connect_error())
 <?php
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<div class=\"col-md-4 product-grid\">"; 
-		echo "<div class=\"image\">;";
+		echo "<div class=\"image\">";
 		echo "<a href=\"#\">";
 		foreach($cols as $colName){
           if($colName == "item_pic"){
@@ -89,7 +89,7 @@ if(mysqli_connect_error())
 		
 		foreach($cols as $colName){			
 			if($colName == "item_cost"){
-				echo "<h5 class=\"text-center\">".round($row[$colName]*100)."</h5>";
+				echo "<h5 class=\"text-center\">".round($row[$colName]*100)." Points</h5>";
 			}
 		}
 			echo "<a href=\"#\" class=\"btn buy\">BUY</a>" ;
