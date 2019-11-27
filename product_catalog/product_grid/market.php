@@ -17,10 +17,6 @@ if (isset($_GET['item'])) {
 	unset($_GET['item']);
 }
 
-foreach($_SESSION['cart'] as $itemz){
-	echo $itemz;
-}
-
 //Pseudocode for database connection
 $host = "172.31.64.59";
 $dbuser = "team12";
@@ -123,79 +119,7 @@ if(mysqli_connect_error())
 		</div>
 
 </div>
-<!-- ./Product 
 
-			<div class="col-md-4 product-grid">
-				<div class="image">
-					<a href="#">
-						<img src="images/beat.jpg" class="w-100">
-						<div class="overlay">
-							<div class="detail">View Details</div>
-						</div>
-					</a>
-				</div>
-				<h5 class="text-center">Beats Solo 3 Wireless</h5>
-				<h5 class="text-center">Price: 15,900 Points</h5>
-				<a href="#" class="btn buy">BUY</a>
-			</div>
-
-
-			<div class="col-md-4 product-grid">
-				<div class="image">
-					<a href="#">
-						<img src="images/imac.jpg" class="w-100">
-						<div class="overlay">
-							<div class="detail">View Details</div>
-						</div>
-					</a>
-				</div>
-				<h5 class="text-center">Apple iMac</h5>
-				<h5 class="text-center">Price: $169,900</h5>
-				<a href="#" class="btn buy">BUY</a>
-			</div>
-
-			<div class="col-md-4 product-grid">
-				<div class="image">
-					<a href="#">
-						<img src="images/ipad.jpg" class="w-100">
-						<div class="overlay">
-							<div class="detail">View Details</div>
-						</div>
-					</a>
-				</div>
-				<h5 class="text-center">Apple iPad</h5>
-				<h5 class="text-center">Price: 41,599 Points</h5>
-				<a href="#" class="btn buy">BUY</a>
-			</div>
-
-			<div class="col-md-4 product-grid">
-				<div class="image">
-					<a href="#">
-						<img src="images/iphone.jpg" class="w-100">
-						<div class="overlay">
-							<div class="detail">View Details</div>
-						</div>
-					</a>
-				</div>
-				<h5 class="text-center">Apple iPhone X</h5>
-				<h5 class="text-center">Price: $134,200 Points </h5>
-				<a href="#" class="btn buy">BUY</a>
-			</div>
-
-			<div class="col-md-4 product-grid">
-				<div class="image">
-					<a href="#">
-						<img src="images/macbook.jpg" class="w-100">
-						<div class="overlay">
-							<div class="detail">View Details</div>
-						</div>
-					</a>
-				</div>
-				<h5 class="text-center">Apple MacBook</h5>
-				<h5 class="text-center">Price: 269,900 Points</h5>
-				<a href="#" class="btn buy">BUY</a>
-			</div>
-			-->
 		</div>
 
 	</div>
@@ -203,7 +127,7 @@ if(mysqli_connect_error())
 
 <script>
     $(function(){
-      $("#nav-placeholder").load("nav.php");
+      $("#nav-placeholder").load("../../nav.php");
     });
 </script>
 
