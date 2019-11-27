@@ -16,7 +16,9 @@ if (isset($_GET['item'])) {
     array_push($_SESSION['cart'], $_GET['item']);
 }
 
-echo $_SESSION['cart'];
+foreach($_SESSION['cart'] as $itemz){
+	echo $itemz;
+}
 
 //Pseudocode for database connection
 $host = "172.31.64.59";
