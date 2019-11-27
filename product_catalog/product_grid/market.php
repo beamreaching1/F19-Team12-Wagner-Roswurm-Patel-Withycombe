@@ -24,11 +24,9 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
-  if(!empty($_POST)){
-    $tableName = mysqli_real_escape_string($connection, $_POST['select']);
-  }else {
-    $tableName = "Account";
-  }
+
+  $tableName = "Item";
+
   $sql = "SHOW COLUMNS FROM $tableName";
   $res = $connection->query($sql);
   
@@ -57,74 +55,54 @@ if(mysqli_connect_error())
 
 	<div id="nav-placeholder"></div>
 	
-	<?php
-    $count = 0;
+
+
+
+<div class="container">
+	<h1 class="text-center">Safe Driving Rewards Catalgue</h1>
+	<hr>
+
+	<div class="row">
+<!-- Product  -->
+<?php
 	while ($row = mysqli_fetch_assoc($result)){
-        $count++;
-
-    ?>
-
-
-
-	<?php echo "<div class=\"col-md-4 product-grid\">"; ?>
-		<?php echo "<div class=\"image\">;";
-			echo "<a href=\"#\">";?>
-        <?php foreach($cols as $colName){
+		echo "<div class=\"col-md-4 product-grid\">"; 
+		echo "<div class=\"image\">;";
+		echo "<a href=\"#\">";
+		foreach($cols as $colName){
           if($colName == "item_pic"){
-            echo "<img src=\"".$row[$colName]."\" class=\"w-100\">";
-          }
-        
-         ?>
-	<?php 
-			echo "<div class=\"overlay\">
-							<div class=\"detail\">View Details</div>
-						</div>
-					</a>
-				</div>"; 
-			
-			if($colName == "item_name"){
+			echo "<img src=\"".$row[$colName]."\" class=\"w-100\">";
+			} 
+		}
+
+		echo "<div class=\"overlay\">
+		<div class=\"detail\">View Details</div>
+				</div>
+			</a>
+		</div>"; 
+
+		foreach($cols as $colName){
+		  	if($colName == "item_name"){
 				echo "<h5 class=\"text-center\">".$row[$colName]."</h5>";
 			}
-
+		}
+		
+		foreach($cols as $colName){			
 			if($colName == "item_cost"){
 				echo "<h5 class=\"text-center\">".round($row[$colName]*100)."</h5>";
 			}
-			echo "<a href=\"#\" class=\"btn buy\">BUY</a>" ;
 		}
-	}?>
-    </tbody>
-  </table>
-</div>
-    
+			echo "<a href=\"#\" class=\"btn buy\">BUY</a>" ;
 
-
-<?php
+		echo "</div>";
+	}
     mysqli_close($connection);
 ?>
+		</div>
 
+</div>
+<!-- ./Product 
 
-	<div class="container">
-		<h1 class="text-center">Safe Driving Rewards Catalgue</h1>
-		<hr>
-
-		<div class="row">
-			<!-- Product  -->
-			<div class="col-md-4 product-grid">
-				<div class="image">
-					<a href="#">
-						<img src="images/apple-watch.jpg" class="w-100">
-						<div class="overlay">
-							<div class="detail">View Details</div>
-						</div>
-					</a>
-				</div>
-				<h5 class="text-center">Apple Watch Series 3 Aluminium</h5>
-				<h5 class="text-center">Price: 55,000 Points</h5>
-				<a href="#" class="btn buy">BUY</a>
-			</div>
-			<!-- ./Product -->
-
-			<!-- Product  -->
 			<div class="col-md-4 product-grid">
 				<div class="image">
 					<a href="#">
@@ -138,9 +116,8 @@ if(mysqli_connect_error())
 				<h5 class="text-center">Price: 15,900 Points</h5>
 				<a href="#" class="btn buy">BUY</a>
 			</div>
-			<!-- ./Product -->
 
-			<!-- Product  -->
+
 			<div class="col-md-4 product-grid">
 				<div class="image">
 					<a href="#">
@@ -154,9 +131,7 @@ if(mysqli_connect_error())
 				<h5 class="text-center">Price: $169,900</h5>
 				<a href="#" class="btn buy">BUY</a>
 			</div>
-			<!-- ./Product -->
 
-			<!-- Product  -->
 			<div class="col-md-4 product-grid">
 				<div class="image">
 					<a href="#">
@@ -170,9 +145,7 @@ if(mysqli_connect_error())
 				<h5 class="text-center">Price: 41,599 Points</h5>
 				<a href="#" class="btn buy">BUY</a>
 			</div>
-			<!-- ./Product -->
 
-			<!-- Product  -->
 			<div class="col-md-4 product-grid">
 				<div class="image">
 					<a href="#">
@@ -186,9 +159,7 @@ if(mysqli_connect_error())
 				<h5 class="text-center">Price: $134,200 Points </h5>
 				<a href="#" class="btn buy">BUY</a>
 			</div>
-			<!-- ./Product -->
 
-			<!-- Product  -->
 			<div class="col-md-4 product-grid">
 				<div class="image">
 					<a href="#">
@@ -202,8 +173,7 @@ if(mysqli_connect_error())
 				<h5 class="text-center">Price: 269,900 Points</h5>
 				<a href="#" class="btn buy">BUY</a>
 			</div>
-			<!-- ./Product -->
-
+			-->
 		</div>
 
 	</div>
