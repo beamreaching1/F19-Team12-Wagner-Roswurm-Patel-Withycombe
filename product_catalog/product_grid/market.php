@@ -63,41 +63,7 @@ if(mysqli_connect_error())
 	<hr>
 
 	<div class="row">
-<!-- Product  -->
-<?php
-	while ($row = mysqli_fetch_assoc($result)){
-		echo "<div class=\"col-md-4 product-grid\">"; 
-		echo "<div class=\"image\">;";
-		echo "<a href=\"#\">";
-		foreach($cols as $colName){
-          if($colName == "item_pic"){
-			echo "<img src=\"".$row[$colName]."\" class=\"w-100\">";
-			} 
-		}
 
-		echo "<div class=\"overlay\">
-		<div class=\"detail\">View Details</div>
-				</div>
-			</a>
-		</div>"; 
-
-		foreach($cols as $colName){
-		  	if($colName == "item_name"){
-				echo "<h5 class=\"text-center\">".$row[$colName]."</h5>";
-			}
-		}
-		
-		foreach($cols as $colName){			
-			if($colName == "item_cost"){
-				echo "<h5 class=\"text-center\">".round($row[$colName]*100)."</h5>";
-			}
-		}
-			echo "<a href=\"#\" class=\"btn buy\">BUY</a>" ;
-
-		echo "</div>";
-	}
-    mysqli_close($connection);
-?>
 		</div>
 
 </div>
