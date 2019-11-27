@@ -7,7 +7,7 @@
     <a class="nav-link" href="homepage.php">Home <span class="sr-only">(current)</span></a>
   </div>
   <div class="nav-item col-xs-4">
-    <a class="nav-link" href="#">Shop</a>
+    <a class="nav-link" href="market.php">Shop</a>
   </div>
 
   <ul class="col-xs-4 navbar-nav ml-auto">

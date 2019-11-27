@@ -5,7 +5,7 @@ session_start();
 
 if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
-	echo('<script>window.location="../../login.php"</script>');
+	echo('<script>window.location="/login.php"</script>');
 }
 
 if(!isset($_SESSION['cart'])){
@@ -56,9 +56,9 @@ if(mysqli_connect_error())
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 	<title>Safe Driving Rewards Catalgue</title>
-	<link href="../../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script type="text/javascript" src="../../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<!-- Bootstrap css -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- Style css -->
@@ -127,7 +127,7 @@ if(mysqli_connect_error())
 
 <script>
     $(function(){
-      $("#nav-placeholder").load("../../nav.php");
+      $("#nav-placeholder").load("/nav.php");
     });
 </script>
 
