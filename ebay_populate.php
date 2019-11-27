@@ -20,7 +20,7 @@ $endpoint = 'http://svcs.ebay.com/services/search/FindingService/v1';  // URL to
 $version = '1.13.0';  // API version supported by your application
 $appid = 'ParthPat-GoodDriv-PRD-3387e50aa-249cdbc9';  // Replace with your own AppID
 $globalid = 'EBAY-US';  // Global ID of the eBay site you want to search (e.g., EBAY-DE)
-$query = 'phone cases';  // You may want to supply your own query
+$query = 'headset';  // You may want to supply your own query
 $safequery = urlencode($query);  // Make the query URL-friendly
 $i = '0';  // Initialize the item filter index to 0
 
@@ -78,7 +78,7 @@ $apicall .= "&SERVICE-VERSION=$version";
 $apicall .= "&SECURITY-APPNAME=$appid";
 $apicall .= "&GLOBAL-ID=$globalid";
 $apicall .= "&keywords=$safequery";
-$apicall .= "&paginationInput.entriesPerPage=3";
+$apicall .= "&paginationInput.entriesPerPage=1";
 $apicall .= "$urlfilter";
 
 // Load the call and capture the document returned by eBay API
