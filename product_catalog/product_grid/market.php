@@ -44,6 +44,7 @@ if(mysqli_connect_error())
 ?>
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 	<title>Safe Driving Rewards Catalgue</title>
 	<!-- Bootstrap css -->
