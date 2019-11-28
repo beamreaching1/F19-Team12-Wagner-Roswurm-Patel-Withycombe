@@ -12,6 +12,10 @@ if(!isset($_SESSION['cart'])){
 	$_SESSION['cart'] = array();
 }
 
+if(isset($_SESSION['item'])){
+	$_SESSION['cart'] = array_diff($_SESSION['cart'], array($_SESSION['item']));
+}
+
 //Pseudocode for database connection
 $host = "172.31.64.59";
 $dbuser = "team12";
@@ -103,6 +107,12 @@ if(mysqli_connect_error())
 			}
 		}
 		
+		foreach($cols as $colName){			
+			if($colName == "item_id"){
+				echo "<a href=\"market.php?item=".$row[$colName]."\" class=\"btn buy\">Remove from Cart</a>" ;
+			}
+		}
+
 		echo "</div>";
 	}
     mysqli_close($connection);
