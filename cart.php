@@ -13,7 +13,7 @@ if(!isset($_SESSION['cart'])){
 }
 
 if(isset($_SESSION['item'])){
-	$_SESSION['cart'] = array_diff($_SESSION['cart'], array($_SESSION['item']));
+	$_SESSION['cart'] = array_diff($_SESSION['cart'], array($_GET['item']));
 }
 
 //Pseudocode for database connection
