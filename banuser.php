@@ -1,3 +1,49 @@
+<?php
+
+#Check if the user is logged in (Put this php code in all of your documents that require login)
+session_start();
+
+if($_SESSION['stig'] != "OK"){
+	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
+	echo('<script>window.location="login.php"</script>');
+}
+if($_SESSION['role'] != "a"){
+	echo('<script>window.location="homepage.php"</script>');
+}
+
+//Pseudocode for database connection
+$host = "172.31.64.59";
+$dbuser = "team12";
+$dbpass = "hG827vnymmBh5CVkTSZ3";
+$dbname = "team12";
+
+//Establish SQL connection
+$connection = new mysqli ($host, $dbuser, $dbpass, $dbname);
+
+if(mysqli_connect_error())
+{
+    echo "A database connection error has occured. 
+    Please try again later or contact your system 
+    administrator.<br \>\n";
+
+} else {
+	if(!empty($_POST)){
+		$input = mysqli_real_escape_string($connection, $_POST['user']);
+	
+		$sql = "INSERT INTO Black_List(driver_id) VALUES((SELECT id from Account WHERE username='$input'))";
+		$res = $connection->query($sql);
+
+		while($row = $res->fetch_assoc()){
+			$cols[] = $row['Field'];
+		}
+
+		$sql = "SELECT * FROM $tableName";
+
+		$result = $connection->query($sql);
+	}  
+}
+
+?>
 <!DOCTYPE html>
 
 <html>
@@ -20,13 +66,13 @@
 				<h3>Ban User</h3>
 			</div>
 			<div class="card-body">
-				<form enctype="multipart/form-data" action="register.php" method="POST">
+				<form action="" method="POST">
                     <h5 style="color: aliceblue">Username</h5>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" id="user" class="form-control" placeholder="Username" required>
+						<input type="text" name="user" id="user" class="form-control" placeholder="Username" required>
                   
 					<div class="form-group">
 						<input type="submit" value="Ban" class="btn float-right login_btn">

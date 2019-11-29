@@ -36,7 +36,7 @@ if($_SESSION['role'] != "a"){
 			</div>
 			<div class="card-body">
 				<a href="display.php">System Information</a>
-				<a href="banuser.html">Ban a User</a>
+				<a href="banuser.php">Ban a User</a>
 				<a href="forgotpassword.php">Reset a Password</a>
 			</div>
 		</div>
