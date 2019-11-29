@@ -87,11 +87,11 @@ if(isset($_POST['submit'])){
 	<link rel="stylesheet" type="text/css" href="login.css">
 </head>
 	<body>
-		<div class="alert" id="blacklist" style="position: fixed;">
+		<div class="alert" id="blacklist" style="position: fixed; <?php if($_SESSION['stig']=="BLACK"){echo "display: block;";} ?>">
   			<strong>Your account is blacklisted.</strong> If you believe this to be a mistake please contact a system admininstrator at wagnerctw@gmail.com
 			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 		</div>
-		<div class="alert" id="fail" style="position: fixed;">
+		<div class="alert" id="fail" style="position: fixed; <?php if($_SESSION['stig']=="FAIL"){echo "display: block;";} ?>">
   			<strong>Failed to login!</strong>
 			  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 		</div>
@@ -140,13 +140,3 @@ if(isset($_POST['submit'])){
 		</div>
 	</body>
 </html>
-<?php
-
-if($_SESSION['stig']=="BLACK"){
-	echo "<script type='text/javascript'>document.getElementById(\"blacklist\").parentElement.style.display = block;</script>";
-}
-
-if($_SESSION['stig']=="BLACK"){
-	echo "<script type='text/javascript'>document.getElementById(\"fail\").parentElement.style.display = block;</script>";
-}
-?>
