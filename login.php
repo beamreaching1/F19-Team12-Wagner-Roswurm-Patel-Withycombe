@@ -44,32 +44,7 @@ if(isset($_POST['submit'])){
 		if ($success) {
 			$check = "SELECT driver_id FROM Black_List WHERE driver_id = (SELECT id FROM Account WHERE username = '$user')";
 			
-			if(($connection->query($check)->num_rows) > 0){
-				echo "<script type='text/javascript'>document.getElementById(\"blacklist\").parentElement.style.display = block;</script>";	
-			} else {
-				$lookup = "SELECT rtype FROM Account WHERE username='$user'";
 
-				$userresult = $connection->query($lookup);
-	
-				$row = mysqli_fetch_assoc($userresult);
-	
-				$_SESSION['role']=$row['rtype'];
-	
-				$_SESSION['stig']="OK";
-
-				$_SESSION['uname']=$user;
-				header("Location: /homepage.php");
-			}
-		} else {
-			echo "<script type='text/javascript'>document.getElementById(\"fail\").parentElement.style.display = block;</script>";
-		}
-
-	}
-
-	mysqli_close($connection);
-} else {
-
-}
 
 ?>
 <!DOCTYPE html>
@@ -140,3 +115,31 @@ if(isset($_POST['submit'])){
 		</div>
 	</body>
 </html>
+<?php
+			if(($connection->query($check)->num_rows) > 0){
+				echo "<script type='text/javascript'>document.getElementById(\"blacklist\").parentElement.style.display = block;</script>";	
+			} else {
+				$lookup = "SELECT rtype FROM Account WHERE username='$user'";
+
+				$userresult = $connection->query($lookup);
+	
+				$row = mysqli_fetch_assoc($userresult);
+	
+				$_SESSION['role']=$row['rtype'];
+	
+				$_SESSION['stig']="OK";
+
+				$_SESSION['uname']=$user;
+				header("Location: /homepage.php");
+			}
+		} else {
+			echo "<script type='text/javascript'>document.getElementById(\"fail\").parentElement.style.display = block;</script>";
+		}
+
+	}
+
+	mysqli_close($connection);
+} else {
+
+}
+?>
