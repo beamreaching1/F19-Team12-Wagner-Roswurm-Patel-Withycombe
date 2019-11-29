@@ -35,7 +35,7 @@ if($_SESSION['stig'] != "OK"){
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/background.jpg" alt="Image 1">
+      <img src="images/d10c2e43ee5892449d29b28526bab4f9.jpg" alt="Image 1">
     </div>
     <div class="carousel-item">
       <img src="images/stack-of-coins.jpg" alt="Image 2">
