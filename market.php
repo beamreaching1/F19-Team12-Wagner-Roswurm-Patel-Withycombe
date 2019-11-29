@@ -58,8 +58,13 @@ if(mysqli_connect_error())
 	<title>Safe Driving Rewards Catalgue</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<!-- Bootstrap css -->
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	  <!-- Bootstrap css -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- Style css -->
 	<link rel="stylesheet" type="text/css" href="market.css">
@@ -77,18 +82,18 @@ if(mysqli_connect_error())
 
 	<div class="text-center">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sponsors
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">
-			<li><a href="#">Sponsor 1</a></li>
-			<li><a href="#">Sponsor 2</a></li>
-			<li><a href="#">Sponsor 3</a></li>
+				<li><a href="#">Sponsor 1</a></li>
+				<li><a href="#">Sponsor 2</a></li>
+				<li><a href="#">Sponsor 3</a></li>
 			</ul>
 		</div>
 	</div>
 	<hr>
 	<div class="text-center">
-		<button type="button" class="btn btn-primary">Checkout</button>
+		<button type="button" class="btn btn-primary" href="cart.php">Cart</button>
 	</div>
 	
 	<div class="row">
