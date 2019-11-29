@@ -111,7 +111,7 @@ if(mysqli_connect_error())
 </body>
 <script>
     $(function(){
-      $("#nav-placeholder").load("nav.html");
+      $("#nav-placeholder").load("nav.php");
     });
 </script>
 </html>

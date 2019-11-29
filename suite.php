@@ -47,7 +47,7 @@ if($_SESSION['role'] != "a"){
 </body>
 <script>
     $(function(){
-      $("#nav-placeholder").load("nav.html");
+      $("#nav-placeholder").load("nav.php");
     });
 </script>
 </html>
