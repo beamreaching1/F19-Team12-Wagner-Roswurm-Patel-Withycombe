@@ -68,14 +68,16 @@ if($_SESSION['stig'] != "OK"){
                 </div>
                 <div class="mr-5">Notifications</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
+              <a class="card-footer text-white clearfix small z-1" href="notify.php">
+                <span class="float-left">View</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
                 </span>
               </a>
             </div>
           </div>
+
+
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
@@ -84,7 +86,7 @@ if($_SESSION['stig'] != "OK"){
                 </div>
                 <div class="mr-5">Shopping Cart</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="cart.php">
                 <span class="float-left">View</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -92,6 +94,8 @@ if($_SESSION['stig'] != "OK"){
               </a>
             </div>
           </div>
+
+
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
@@ -100,7 +104,7 @@ if($_SESSION['stig'] != "OK"){
                 </div>
                 <a class="mr-5">Shop on Catalog</a>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="market.php#">
+              <a class="card-footer text-white clearfix small z-1" href="market.php">
                 <span class="float-left">View</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -108,16 +112,18 @@ if($_SESSION['stig'] != "OK"){
               </a>
             </div>
           </div>
+
+
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
                 </div>
-                <div class="mr-5">13 New Tickets!</div>
+                <div class="mr-5">Profile</div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
+                <span class="float-left">View</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
                 </span>
