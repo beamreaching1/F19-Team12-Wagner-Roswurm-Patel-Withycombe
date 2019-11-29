@@ -78,13 +78,13 @@ if(mysqli_connect_error())
 
 	<div class="text-center">
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sponsors
+			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Sponsors
 			<span class="caret"></span></button>
-			<ul class="dropdown-menu">
-				<li><a href="#">Sponsor 1</a></li>
-				<li><a href="#">Sponsor 2</a></li>
-				<li><a href="#">Sponsor 3</a></li>
-			</ul>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="#">Sponsor 1</a>
+				<a class="dropdown-item" href="#">Sponsor 2</a>
+				<a class="dropdown-item" href="#">Sponsor 3</a>
+			</div>
 		</div>
 	</div>
 	<hr>
