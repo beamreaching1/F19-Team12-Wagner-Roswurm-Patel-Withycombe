@@ -46,6 +46,7 @@ box-shadow: 0 0 0 0 !important;
 }
 
 .alert {
+    align-self: center;
     padding: 20px;
     background-color: #f44336;
     color: white;
