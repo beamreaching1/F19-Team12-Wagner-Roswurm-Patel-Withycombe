@@ -123,7 +123,7 @@ if(mysqli_connect_error())
 </div>
 	<hr>
 	<div class="text-center">
-		<button type="button" class="btn btn-primary">Checkout</button>
+	<button type="button" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" href="buy.php">Checkout</a></button>
 	</div>
 		</div>
 	</div>
