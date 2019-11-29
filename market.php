@@ -75,6 +75,22 @@ if(mysqli_connect_error())
 	<h1 class="text-center">Safe Driving Rewards Catalgue</h1>
 	<hr>
 
+	<div class="text-center">
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+			<span class="caret"></span></button>
+			<ul class="dropdown-menu">
+			<li><a href="#">Sponsor 1</a></li>
+			<li><a href="#">Sponsor 2</a></li>
+			<li><a href="#">Sponsor 3</a></li>
+			</ul>
+		</div>
+	</div>
+	<hr>
+	<div class="text-center">
+		<button type="button" class="btn btn-primary">Checkout</button>
+	</div>
+	
 	<div class="row">
 <!-- Product  -->
 <?php

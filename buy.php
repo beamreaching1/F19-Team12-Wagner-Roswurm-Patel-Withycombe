@@ -121,10 +121,7 @@ if(mysqli_connect_error())
 		</div>
 
 </div>
-	<hr>
-	<div class="text-center">
-		<button type="button" class="btn btn-primary">Checkout</button>
-	</div>
+
 		</div>
 	</div>
 </body>

@@ -12,7 +12,7 @@
 
   <ul class="col-xs-4 navbar-nav ml-auto">
       <li><div class="nav-item">
-        <a class="nav-link" href="account.html">Account</a>
+        <a class="nav-link" href="profile.php">Account</a>
       </div></li>
       <li><div class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
