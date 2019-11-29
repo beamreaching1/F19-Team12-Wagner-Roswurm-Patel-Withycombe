@@ -15,6 +15,8 @@ if(!isset($_SESSION['cart'])){
 if(isset($_GET['item'])){
 	$_SESSION['cart'] = array_diff($_SESSION['cart'], array($_GET['item']));
 	unset($_GET['item']);
+} else {
+    
 }
 
 //Pseudocode for database connection
@@ -116,7 +118,25 @@ global $sum;
     <hr>
     <h1>Total Cost: ".$sum." Points</h1>
     </div>";
-	
+
+    $d_id = $_SESSION['d_id'];
+    
+    $sql = "SELECT pointval FROM points WHERE driver_id='$d_id' AND company_id='$c_id'";
+    
+    $result = $connection->query($sql);
+    
+    $row = mysqli_fetch_assoc($result);
+    
+    $balance = $row['pointval'];
+
+    if(($connection->query($check)->num_rows) <= 0 || $balance - $sum < 0){
+        header("Location: /market.php");
+    } else {
+        $sum2 = $balance - $sum;
+        $sql = "UPDATE points SET pointval='$sum2' WHERE driver_id='$d_id' AND company_id='$c_id'";
+    }
+    
+    $_SESSION['cart'] = array();
     mysqli_close($connection);
 ?>
 

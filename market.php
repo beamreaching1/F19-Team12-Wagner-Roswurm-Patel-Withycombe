@@ -80,9 +80,9 @@ if(mysqli_connect_error())
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Sponsors
 			<span class="caret"></span></button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="#">Sponsor 1</a>
-				<a class="dropdown-item" href="#">Sponsor 2</a>
-				<a class="dropdown-item" href="#">Sponsor 3</a>
+				<a class="dropdown-item" href="market.php?sponsor=1">Sponsor 1</a>
+				<a class="dropdown-item" href="market.php?sponsor=2">Sponsor 2</a>
+				<a class="dropdown-item" href="market.php?sponsor=3">Sponsor 3</a>
 			</div>
 		</div>
 	</div>
