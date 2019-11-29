@@ -21,7 +21,7 @@ html,body{
     width: auto;
     max-width: 100%;
     min-width: 250px;
-    background-color: rgba(128, 128, 128, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
     }
     
     .card-header h3{
@@ -39,18 +39,6 @@ html,body{
     outline: 0 0 0 0  !important;
     box-shadow: 0 0 0 0 !important;
     
-    }
-    
-    .remember{
-    color: white;
-    }
-    
-    .remember input
-    {
-    width: 20px;
-    height: 20px;
-    margin-left: 15px;
-    margin-right: 5px;
     }
     
     .login_btn{
