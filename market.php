@@ -57,8 +57,8 @@ if(mysqli_connect_error())
 <head>
 	<title>Safe Driving Rewards Catalgue</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 	
 	<!-- Bootstrap css -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
