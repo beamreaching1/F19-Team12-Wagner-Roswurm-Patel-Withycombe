@@ -89,7 +89,7 @@ if(mysqli_connect_error())
 	</div>
 	<hr>
 	<div class="text-center">
-		<button type="button" class="btn btn-primary" href="cart.php">Cart</button>
+		<button type="button" href="cart.php">Cart</button>
 	</div>
 	
 	<div class="row">
