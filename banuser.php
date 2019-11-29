@@ -73,7 +73,7 @@ if(mysqli_connect_error())
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" name="user" id="user" class="form-control" placeholder="Username" required>
-                  
+					</div>
 					<div class="form-group">
 						<input type="submit" value="Ban" class="btn float-right login_btn">
 					</div>
