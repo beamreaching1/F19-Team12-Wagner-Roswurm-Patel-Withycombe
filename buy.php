@@ -50,14 +50,14 @@ if(mysqli_connect_error())
   $result = $connection->query($sql);
     
 }
-
+global $sum;
 
 ?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-	<title>Review Cart</title>
+	<title>Purchased</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -74,7 +74,7 @@ if(mysqli_connect_error())
 
 
 <div class="container">
-	<h1 class="text-center">Review Cart</h1>
+	<h1 class="text-center">Purchase Complete</h1>
 	<hr>
 
 	<div class="row">
@@ -105,17 +105,15 @@ if(mysqli_connect_error())
 		foreach($cols as $colName){			
 			if($colName == "item_cost"){
 				echo "<h5 class=\"text-center\">".round($row[$colName]*100)." Points</h5>";
-			}
+                $sum += round($row[$colName]*100);
+            }
 		}
 		
-		foreach($cols as $colName){			
-			if($colName == "item_id"){
-				echo "<a href=\"cart.php?item=".$row[$colName]."\" class=\"btn buy\">Remove from Cart</a>" ;
-			}
-		}
-
 		echo "</div>";
-	}
+    }
+    echo "<hr>
+    <h1 class=\"text-center\">Total Cost: ".$sum." Points</h1>";
+	
     mysqli_close($connection);
 ?>
 		</div>
