@@ -111,8 +111,10 @@ global $sum;
 		
 		echo "</div>";
     }
-    echo "<hr>";
-    echo "<h1 class=\"text-center\">Total Cost: ".$sum." Points</h1>";
+    echo "<div class=\"text-center\">
+    <hr>
+    <h1>Total Cost: ".$sum." Points</h1>
+    </div>";
 	
     mysqli_close($connection);
 ?>
