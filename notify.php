@@ -55,7 +55,7 @@ if(mysqli_connect_error())
   while($row=mysqli_fetch_row($result)){
     $message = $row[0];
     echo "
-    <div class=\"row align-items-center h-100\">
+    <div class=\"row align-items-center h-100\" style=\"justify-content: center;\">
         <div class=\"col-xl-auto\">
             <div class=\"card text-white bg-secondary o-hidden h-100\">
                 <div class=\"card-body\">
