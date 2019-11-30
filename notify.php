@@ -15,8 +15,8 @@ if($_SESSION['stig'] != "OK"){
     <link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <title>Home</title>
-	<link rel="stylesheet" type="text/css" href="home.css">
+    <title>Notifications</title>
+	<link rel="stylesheet" type="text/css" href="notify.css">
   <link rel="stylesheet" type="text/css" href="nav.css">
 </head>
 <body>
@@ -63,13 +63,13 @@ if(mysqli_connect_error())
     $message = $row[0];
     echo "
     <div class=\"row\">
-    <div class=\"col-xl-3 col-sm-6 mb-3\">
-        <div class=\"card text-white bg-secondary o-hidden h-100\">
-            <div class=\"card-body\">
-                <div class=\"card-body-icon\">
-                    <i class=\"fas fa-fw fa-shopping-cart\"></i>
-                </div>
-                <a class=\"mr-5\">".$message."</a>
+        <div class=\"col-xl-3 col-sm-6 mb-3\">
+            <div class=\"card text-white bg-secondary o-hidden h-100\">
+                <div class=\"card-body\">
+                    <div class=\"card-body-icon\">
+                        <i class=\"fas fa-fw fa-shopping-cart\"></i>
+                    </div>
+                    <a class=\"mr-5\">".$message."</a>
                 </div>
             </div>
         </div>
