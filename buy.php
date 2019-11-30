@@ -3,6 +3,8 @@
 #Check if the user is logged in (Put this php code in all of your documents that require login)
 session_start();
 
+global $sponsor;
+
 if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
 	echo('<script>window.location="/login.php"</script>');
@@ -12,12 +14,10 @@ if(!isset($_SESSION['cart'])){
 	$_SESSION['cart'] = array();
 }
 
-if(isset($_GET['item'])){
-	$_SESSION['cart'] = array_diff($_SESSION['cart'], array($_GET['item']));
-	unset($_GET['item']);
-} else {
-    
-}
+// if(isset($_GET['sponsor'])){
+//     $sponsor = $_GET['sponsor'];
+//     unset($_GET['item']);
+// }
 
 //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -72,9 +72,6 @@ global $sum;
 
 	<div id="nav-placeholder"></div>
 	
-
-
-
 <div class="container">
 	<h1 class="text-center">Purchase Complete</h1>
 	<hr>
@@ -118,7 +115,7 @@ global $sum;
     <hr>
     <h1>Total Cost: ".$sum." Points</h1>
     </div>";
-
+    $c_id = $_SESSION['sponsor'];
     $d_id = $_SESSION['d_id'];
     
     $sql = "SELECT pointval FROM points WHERE driver_id='$d_id' AND company_id='$c_id'";

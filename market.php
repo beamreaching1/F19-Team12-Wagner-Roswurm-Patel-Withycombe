@@ -17,6 +17,12 @@ if (isset($_GET['item'])) {
 	unset($_GET['item']);
 }
 
+if (isset($_GET['sponsor'])) {
+	$_SESSION['sponsor'] = $_GET['sponsor'];
+	unset($_GET['item']);
+}
+
+
 //Pseudocode for database connection
 $host = "172.31.64.59";
 $dbuser = "team12";
