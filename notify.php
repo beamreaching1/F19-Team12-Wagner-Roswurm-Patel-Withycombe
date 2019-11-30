@@ -25,15 +25,7 @@ if($_SESSION['stig'] != "OK"){
 
 
 
-</body>
-
-<script>
-    $(function(){
-      $("#nav-placeholder").load("nav.php");
-    });
-</script>
-
-</html>
+<div class="text-center">
 
 <?php
   //Pseudocode for database connection
@@ -79,3 +71,13 @@ if(mysqli_connect_error())
 
 mysqli_close($connection);
 ?>
+</div>
+</body>
+
+<script>
+    $(function(){
+      $("#nav-placeholder").load("nav.php");
+    });
+</script>
+
+</html>
