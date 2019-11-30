@@ -27,7 +27,7 @@ if($_SESSION['stig'] != "OK"){
 
 <div class="text-center">
 <div class="container h-100" style="justify-content: center;">
-
+<br>
 <?php
   //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -62,7 +62,7 @@ if(mysqli_connect_error())
                     <div class=\"card-body-icon\">
                         <i class=\"fas fa-fw fa-shopping-cart\"></i>
                     </div>
-                    <a class=\"mr-5\">".$message."</a>
+                    <a class=\"mr-5\" style=\"margin-right: none;\">".$message."</a>
                 </div>
             </div>
         </div>
