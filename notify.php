@@ -66,7 +66,7 @@ if(mysqli_connect_error())
                 </div>
             </div>
         </div>
-    </div>";
+    </div><br>";
   }
 }
 
