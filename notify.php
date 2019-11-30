@@ -75,9 +75,6 @@ if(mysqli_connect_error())
         </div>
     </div>";
   }
-
-  $result = $connection->query($query);
-
 }
 
 mysqli_close($connection);
