@@ -25,7 +25,8 @@ if($_SESSION['stig'] != "OK"){
 
 
 
-<div class="i-am-centered">
+<div class="text-center">
+<div class="container h-100">
 
 <?php
   //Pseudocode for database connection
@@ -54,7 +55,7 @@ if(mysqli_connect_error())
   while($row=mysqli_fetch_row($result)){
     $message = $row[0];
     echo "
-    <div class=\"row\">
+    <div class=\"row align-items-center h-100\">
         <div class=\"col-xl-3 col-sm-6 mb-3\">
             <div class=\"card text-white bg-secondary o-hidden h-100\">
                 <div class=\"card-body\">
@@ -71,6 +72,7 @@ if(mysqli_connect_error())
 
 mysqli_close($connection);
 ?>
+</div>
 </div>
 </body>
 
