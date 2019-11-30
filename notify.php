@@ -62,7 +62,7 @@ if(mysqli_connect_error())
                     <div class=\"card-body-icon\">
                         <i class=\"fas fa-fw fa-shopping-cart\"></i>
                     </div>
-                    <a class=\"mr-5\" style=\"margin-right: none;\">".$message."</a>
+                    <a>".$message."</a>
                 </div>
             </div>
         </div>
