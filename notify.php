@@ -26,7 +26,7 @@ if($_SESSION['stig'] != "OK"){
 
 
 <div class="text-center">
-<div class="container h-100">
+<div class="container h-100" style="justify-content: center;">
 
 <?php
   //Pseudocode for database connection
