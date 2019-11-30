@@ -56,7 +56,7 @@ if(mysqli_connect_error())
     $message = $row[0];
     echo "
     <div class=\"row align-items-center h-100\">
-        <div class=\"col-xl-3 col-sm-6 mb-3\">
+        <div class=\"col-xl-auto\">
             <div class=\"card text-white bg-secondary o-hidden h-100\">
                 <div class=\"card-body\">
                     <div class=\"card-body-icon\">
