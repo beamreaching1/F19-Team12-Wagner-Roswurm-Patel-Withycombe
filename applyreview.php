@@ -3,8 +3,6 @@
 #Check if the user is logged in (Put this php code in all of your documents that require login)
 session_start();
 
-global $sponsor;
-
 if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
 	echo('<script>window.location="/login.php"</script>');
@@ -14,10 +12,10 @@ if(!isset($_SESSION['cart'])){
 	$_SESSION['cart'] = array();
 }
 
-// if(isset($_GET['sponsor'])){
-//     $sponsor = $_GET['sponsor'];
-//     unset($_GET['item']);
-// }
+if(isset($_GET['item'])){
+	$_SESSION['cart'] = array_diff($_SESSION['cart'], array($_GET['item']));
+	unset($_GET['item']);
+}
 
 //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -36,7 +34,7 @@ if(mysqli_connect_error())
 
 } else {
 
-  $tableName = "Item";
+  $tableName = "Company";
 
   $sql = "SHOW COLUMNS FROM $tableName";
   $res = $connection->query($sql);
@@ -47,19 +45,19 @@ if(mysqli_connect_error())
 
   $array = $_SESSION['cart'];
 
-  $sql = "SELECT * FROM $tableName WHERE item_id IN (".implode(',', array_map('intval', $array)).")";
+  $sql = "SELECT * FROM $tableName WHERE company_id IN (".implode(',', array_map('intval', $array)).")";
 
   $result = $connection->query($sql);
     
 }
-global $sum;
+
 
 ?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-	<title>Purchased</title>
+	<title>Review Sponsors</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -72,8 +70,11 @@ global $sum;
 
 	<div id="nav-placeholder"></div>
 	
+
+
+
 <div class="container">
-	<h1 class="text-center">Purchase Complete</h1>
+	<h1 class="text-center">Review Sponsors</h1>
 	<hr>
 
 	<div class="row">
@@ -81,74 +82,30 @@ global $sum;
 <?php
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<div class=\"col-md-4 product-grid\">"; 
-		echo "<div class=\"image\">";
-		echo "<a href=\"#\">";
-		foreach($cols as $colName){
-          if($colName == "item_pic"){
-			echo "<img src=\"".$row[$colName]."\" class=\"w-100\">";
-			} 
-		}
-
-		echo "<div class=\"overlay\">
-		<div class=\"detail\">View Details</div>
-				</div>
-			</a>
-		</div>"; 
 
 		foreach($cols as $colName){
-		  	if($colName == "item_name"){
+		  	if($colName == "company_name"){
 				echo "<h5 class=\"text-center\">".$row[$colName]."</h5>";
 			}
 		}
-		
+
 		foreach($cols as $colName){			
-			if($colName == "item_cost"){
-				echo "<h5 class=\"text-center\">".round($row[$colName]*100)." Points</h5>";
-                $sum += round($row[$colName]*100);
-            }
+			if($colName == "company_id"){
+				echo "<a href=\"applyreview.php?item=".$row[$colName]."\" class=\"btn buy\">Remove</a>" ;
+			}
 		}
 		
 		echo "</div>";
-    }
-    echo "</div>";
-    echo "<div class=\"text-center\">
-    <hr>
-    <h1>Total Cost: ".$sum." Points</h1>
-    </div>";
-    $c_id = $_SESSION['sponsor'];
-    $sql = "SELECT id FROM Account WHERE username = '$user'";
-    
-    $result = $connection->query($sql);
-
-    $row = mysqli_fetch_assoc($result);
-    
-    $d_id = $row['id'];
-    
-    $sql = "SELECT pointval FROM points WHERE driver_id='$d_id' AND company_id='$c_id'";
-    
-    $result = $connection->query($sql);
-    
-    $row = mysqli_fetch_assoc($result);
-    
-    $balance = $row['pointval'];
-
-    if(($connection->query($check)->num_rows) <= 0 || $balance - $sum < 0){
-        echo "<script>alert(\"Insufficient funds or an error has occured.\");</script>";
-        header("Location: /market.php");
-    } else {
-        $sum2 = $balance - $sum;
-        $sql = "UPDATE points SET pointval='$sum2' WHERE driver_id='$d_id' AND company_id='$c_id'";
-        echo "<script>alert(\"Purchase complete!\");</script>";
-        header("Location: /homepage.php");
-    }
-    
-    $_SESSION['cart'] = array();
+	}
     mysqli_close($connection);
 ?>
-
+		</div>
 
 </div>
-
+	<hr>
+	<div class="text-center">
+	<button type="button" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" href="applied.php">Send Request</a></button>
+	</div>
 		</div>
 	</div>
 </body>

@@ -17,11 +17,6 @@ if (isset($_GET['item'])) {
 	unset($_GET['item']);
 }
 
-if (isset($_GET['sponsor'])) {
-	$_SESSION['sponsor'] = $_GET['sponsor'];
-	unset($_GET['sponsor']);
-}
-
 
 //Pseudocode for database connection
 $host = "172.31.64.59";
@@ -40,7 +35,7 @@ if(mysqli_connect_error())
 
 } else {
 
-  $tableName = "Item";
+  $tableName = "Company";
 
   $sql = "SHOW COLUMNS FROM $tableName";
   $res = $connection->query($sql);
@@ -61,7 +56,7 @@ if(mysqli_connect_error())
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-	<title>Safe Driving Rewards Catalgue</title>
+	<title>Safe Driving Rewards Sponsor List</title>
 	
 	<script type="" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/popper.min.js"></script>
@@ -78,23 +73,10 @@ if(mysqli_connect_error())
 
 	<div id="nav-placeholder"></div>
 	
-	<h1 class="text-center">Safe Driving Rewards Catalgue</h1>
-	<hr>
-
-	<div class="text-center">
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Sponsors
-			<span class="caret"></span></button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="market.php?sponsor=1">Sponsor 1</a>
-				<a class="dropdown-item" href="market.php?sponsor=2">Sponsor 2</a>
-				<a class="dropdown-item" href="market.php?sponsor=3">Sponsor 3</a>
-			</div>
-		</div>
-	</div>
+	<h1 class="text-center">Safe Driving Rewards Sponsor List</h1>
 	<hr>
 	<div class="text-center">
-		<button type="button" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" href="cart.php">Cart</a></button>
+		<button type="button" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" href="applyreview.php">Final Review</a></button>
 	</div>
 
 
@@ -105,35 +87,16 @@ if(mysqli_connect_error())
 <?php
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<div class=\"col-md-4 product-grid\">"; 
-		echo "<div class=\"image\">";
-		echo "<a href=\"#\">";
-		foreach($cols as $colName){
-          if($colName == "item_pic"){
-			echo "<img src=\"".$row[$colName]."\" class=\"w-100\">";
-			} 
-		}
-
-		echo "<div class=\"overlay\">
-		<div class=\"detail\">View Details</div>
-				</div>
-			</a>
-		</div>"; 
 
 		foreach($cols as $colName){
-		  	if($colName == "item_name"){
+		  	if($colName == "company_name"){
 				echo "<h5 class=\"text-center\">".$row[$colName]."</h5>";
 			}
 		}
-		
-		foreach($cols as $colName){			
-			if($colName == "item_cost"){
-				echo "<h5 class=\"text-center\">".round($row[$colName]*100)." Points</h5>";
-			}
-		}
 
 		foreach($cols as $colName){			
-			if($colName == "item_id"){
-				echo "<a href=\"market.php?item=".$row[$colName]."\" class=\"btn buy\">Add to Cart</a>" ;
+			if($colName == "company_id"){
+				echo "<a href=\"apply.php?item=".$row[$colName]."\" class=\"btn buy\">Add</a>" ;
 			}
 		}
 		
