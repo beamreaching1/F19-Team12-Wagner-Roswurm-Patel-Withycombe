@@ -31,7 +31,7 @@ if(mysqli_connect_error())
 		$input = mysqli_real_escape_string($connection, $_POST['user']);
 		$input2 = mysqli_real_escape_string($connection, $_POST['role']);
 	
-		$sql = "UPDATE Account SET rtype='$input2' where id=(SELECT id from Account WHERE username='$input'))";
+		$sql = "UPDATE Account SET rtype='$input2' where id=(SELECT id from Account WHERE username='$input')";
 		$res = $connection->query($sql);
 		mysqli_close($connection);
 	}  
