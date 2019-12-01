@@ -127,10 +127,13 @@ global $sum;
     $balance = $row['pointval'];
 
     if(($connection->query($check)->num_rows) <= 0 || $balance - $sum < 0){
+        echo "<script>alert(\"Insufficient funds or an error has occured.\");</script>";
         header("Location: /market.php");
     } else {
         $sum2 = $balance - $sum;
         $sql = "UPDATE points SET pointval='$sum2' WHERE driver_id='$d_id' AND company_id='$c_id'";
+        echo "<script>alert(\"Purchase complete!\");</script>";
+        header("Location: /homepage.php");
     }
     
     $_SESSION['cart'] = array();

@@ -40,6 +40,8 @@ if($_SESSION['role'] != "a"){
 				<a href="banuser.php">Ban a User</a>
 				<br>
 				<a href="forgotpassword.php">Reset a Password</a>
+				<br>
+				<a href="role.php">Role Change</a>
 			</div>
 		</div>
 	</div>
