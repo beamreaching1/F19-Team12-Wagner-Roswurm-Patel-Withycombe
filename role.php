@@ -53,6 +53,7 @@ if(mysqli_connect_error())
 	<link rel="stylesheet" type="text/css" href="role.css">
 </head>
 <body>
+<div id="nav-placeholder"></div>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -84,4 +85,9 @@ if(mysqli_connect_error())
 	</div>
 </div>
 </body>
+<script>
+    $(function(){
+      $("#nav-placeholder").load("/nav.php");
+    });
+</script>
 </html>
