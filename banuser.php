@@ -32,14 +32,7 @@ if(mysqli_connect_error())
 	
 		$sql = "INSERT INTO Black_List(driver_id) VALUES((SELECT id from Account WHERE username='$input'))";
 		$res = $connection->query($sql);
-
-		while($row = $res->fetch_assoc()){
-			$cols[] = $row['Field'];
-		}
-
-		$sql = "SELECT * FROM $tableName";
-
-		$result = $connection->query($sql);
+		mysqli_close($connection);
 	}  
 }
 

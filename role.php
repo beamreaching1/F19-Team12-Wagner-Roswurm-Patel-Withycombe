@@ -33,14 +33,7 @@ if(mysqli_connect_error())
 	
 		$sql = "UPDATE Account SET rtype='$input2' where id=(SELECT id from Account WHERE username='$input'))";
 		$res = $connection->query($sql);
-
-		while($row = $res->fetch_assoc()){
-			$cols[] = $row['Field'];
-		}
-
-		$sql = "SELECT * FROM $tableName";
-
-		$result = $connection->query($sql);
+		mysqli_close($connection);
 	}  
 }
 
