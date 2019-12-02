@@ -99,7 +99,7 @@ if(mysqli_connect_error())
 
 					$temp = "user_id";
 
-					$sql = "SELECT * FROM company WHERE company_id=(SELECT company_id FROM Sponsor_List WHERE $temp=$d_id)";
+					$sql = "SELECT * FROM Company WHERE company_id=(SELECT company_id FROM Sponsor_List WHERE $temp=$d_id)";
 
 					$result2 = $connection->query($sql);
 				
