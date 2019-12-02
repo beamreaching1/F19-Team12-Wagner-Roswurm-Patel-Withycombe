@@ -9,7 +9,7 @@ if($_SESSION['stig'] != "OK"){
 }
 
 if($_SESSION['rtype'] != "s"){
-	echo ('<script>window.location="/homepage.php"</scripts>');
+	header("Location: /homepage.php");
 }
 
 if(!isset($_SESSION['cart'])){
