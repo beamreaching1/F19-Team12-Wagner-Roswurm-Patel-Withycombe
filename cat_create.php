@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 #Check if the user is logged in (Put this php code in all of your documents that require login)
 session_start();
 
@@ -116,7 +115,7 @@ if(mysqli_connect_error())
     </div>";
     $array = $_SESSION['cart'];
 
-    $input = $_SESSION(['uname']);
+    $input = $_SESSION['uname'];
 
     foreach($array as $item){
         $sql = "INSERT INTO Sponsor_Catalogs(company_id, item_id) VALUES((SELECT company_id FROM Sponsor WHERE id=(SELECT id from Account WHERE username='$input'))),  $item)";
