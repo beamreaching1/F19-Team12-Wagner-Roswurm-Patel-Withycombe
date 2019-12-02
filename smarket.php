@@ -8,7 +8,7 @@ if($_SESSION['stig'] != "OK"){
 	echo('<script>window.location="/login.php"</script>');
 }
 
-if($_SESSION['rtype'] != "s"){
+if($_SESSION['role'] != "s"){
 	header("Location: /homepage.php");
 }
 
