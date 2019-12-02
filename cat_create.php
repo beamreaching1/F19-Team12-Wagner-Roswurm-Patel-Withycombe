@@ -68,11 +68,6 @@ if(mysqli_connect_error())
 	<!-- Style css -->
 	<link rel="stylesheet" type="text/css" href="market.css">
 </head>
-<script>
-    $(function(){
-      $("#nav-placeholder").load("/nav.php");
-    });
-</script>
 <body>
 
 	<div id="nav-placeholder"></div>
@@ -136,7 +131,12 @@ if(mysqli_connect_error())
 </div>
 
 		</div>
-	</div>
+    </div>
+    <script>
+        $(function(){
+        $("#nav-placeholder").load("/nav.php");
+        });
+    </script>
 </body>
 
 </html>
