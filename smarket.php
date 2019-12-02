@@ -87,7 +87,7 @@ if(mysqli_connect_error())
 	<div class="text-center">
 		<button type="button" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" href="finalize.php">Finalize</a></button>
 	</div>
-
+	<hr>
 
 <div class="container">
 
