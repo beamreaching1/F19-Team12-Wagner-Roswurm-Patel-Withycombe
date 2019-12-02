@@ -1,0 +1,54 @@
+CREATE DATABASE  IF NOT EXISTS `team12` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `team12`;
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+--
+-- Host: team12-db.c5i62rnyygs1.us-east-1.rds.amazonaws.com    Database: team12
+-- ------------------------------------------------------
+-- Server version	5.7.22-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Password_Hash`
+--
+
+DROP TABLE IF EXISTS `Password_Hash`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Password_Hash` (
+  `id` int(11) NOT NULL,
+  `ash` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `Password_Hash_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Account` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Password_Hash`
+--
+
+LOCK TABLES `Password_Hash` WRITE;
+/*!40000 ALTER TABLE `Password_Hash` DISABLE KEYS */;
+INSERT INTO `Password_Hash` VALUES (8,'$2y$10$tw0Z3u66UI5DySKEMJyiB.EblsX.gRNwycfKu7i6EAq2PXS485QgW'),(9,'$2y$10$D3jyOY9TyTI2PyjGzf8q4eoiAslrFV.XrDROgYVe24Fbl33pSbWbq'),(10,'$2y$10$7Lk7Mk1qgJEs8EcYi6ZQ5.SgYuFycq0PHDjCLU7Py7NqsG4UwL0Xu'),(11,'$2y$10$ry1P5nE3leIwV2ThtWJuNOY3CDzVYaLsRB0R7VLHVqP03XZ6sTZNu'),(12,'$2y$10$RZzbmGTMeyT5dg6ZRZJQq.m8CfENZnHUVPmLc64PNkUKON6.pl5Q2'),(13,'$2y$10$vvLF2cD8l4y40TWmiEmi2u08.8D4x3qjsNdGnMQxlik4WncAE2TFW'),(14,'$2y$10$mYSRL3JsZcTAov309o1G.u6pgUftxwG7BnUAPJrRg1s0Ze4wozGr6'),(15,'$2y$10$iXVfUYrqK5Bdvopchyt4M.20doGjABcEN0cuPw75lPVXsh2yK1GTq');
+/*!40000 ALTER TABLE `Password_Hash` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-12-02  3:27:40
