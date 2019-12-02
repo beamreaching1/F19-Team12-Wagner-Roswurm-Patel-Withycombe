@@ -44,22 +44,36 @@ if(mysqli_connect_error())
 
   if(isset($_SESSION['sponsor'])){
 	  //	$temp = implode(',', array_map('intval', $arr));
+	
+	$tableName = "Item";
+
+	$sql = "SHOW COLUMNS FROM $tableName";
+	$res = $connection->query($sql);
+	
+	while($row = $res->fetch_assoc()){
+		$cols[] = $row['Field'];
+	}
+  
 	$temp2=$_SESSION['sponsor'];
 	$sql = "SELECT * FROM Item WHERE item_id IN (SELECT item_id FROM Sponsor_Catalogs WHERE company_id=$temp2)";
+
+	$result = $connection->query($sql);
+  }else{
+	$tableName = "Item";
+
+	$sql = "SHOW COLUMNS FROM $tableName";
+	$res = $connection->query($sql);
+	
+	while($row = $res->fetch_assoc()){
+		$cols[] = $row['Field'];
+	}
+
+	$sql = "SELECT * FROM $tableName";
+
+	$result = $connection->query($sql);
   }
 
-  $tableName = "Item";
 
-  $sql = "SHOW COLUMNS FROM $tableName";
-  $res = $connection->query($sql);
-  
-  while($row = $res->fetch_assoc()){
-      $cols[] = $row['Field'];
-  }
-
-  $sql = "SELECT * FROM $tableName";
-
-  $result = $connection->query($sql);
     
 }
 
