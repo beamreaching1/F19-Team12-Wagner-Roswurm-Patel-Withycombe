@@ -78,6 +78,7 @@ if(mysqli_connect_error())
 	<div class="text-center">
 		<button type="button" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" href="applyreview.php">Final Review</a></button>
 	</div>
+	<hr>
 
 
 <div class="container">
