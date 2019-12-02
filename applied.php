@@ -103,8 +103,10 @@ if(mysqli_connect_error())
     $d_id = $row['id'];
     $idl = $_SESSION['cart'];
 
+    $temp = "user_id";
+
     foreach($idl as $c_id){
-        $sql = "INSERT INTO Sponsor_List(company_id, 'user_id') values($c_id, $d_id)";
+        $sql = "INSERT INTO Sponsor_List(company_id, $temp) values($c_id, $d_id)";
     
         $result = $connection->query($sql);
     }
