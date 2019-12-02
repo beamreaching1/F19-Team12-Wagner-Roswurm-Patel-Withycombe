@@ -105,8 +105,11 @@ if(mysqli_connect_error())
 
     $temp = "user_id";
 
+    echo $idl;
+
     foreach($idl as $c_id){
         $sql = "INSERT INTO Sponsor_List(company_id, $temp) values($c_id, $d_id)";
+        echo $sql;
     
         $result = $connection->query($sql);
     }
