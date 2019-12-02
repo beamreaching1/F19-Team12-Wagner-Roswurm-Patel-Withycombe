@@ -124,7 +124,7 @@ if(mysqli_connect_error())
 
 		foreach($cols as $colName){			
 			if($colName == "item_id"){
-				echo "<a href=\"market.php?item=".$row[$colName]."\" class=\"btn buy\">Add to Catalog</a>" ;
+				echo "<a href=\"smarket.php?item=".$row[$colName]."\" class=\"btn buy\">Add to Catalog</a>" ;
 			}
 		}
 		
