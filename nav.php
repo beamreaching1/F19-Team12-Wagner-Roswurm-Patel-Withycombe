@@ -18,7 +18,7 @@
         <a class="nav-link" href="logout.php">Logout</a>
       </div></li>
       <li><div class="nav-item">
-        <a class="nav-link" id="trend" href="<?php if($_SESSION['role'] == "a"){echo "suite.php";}else{echo "trending.php";}?>"><?php if($_SESSION['role'] == "a"){echo "Suite";}else{echo "Trending";}?></a>
+        <a class="nav-link" id="trend" href="<?php if($_SESSION['role'] == "a"){echo "suite.php";}else{echo "apply.php";}?>"><?php if($_SESSION['role'] == "a"){echo "Suite";}else{echo "Apply";}?></a>
       </div></li>
   </ul>
 </nav>
