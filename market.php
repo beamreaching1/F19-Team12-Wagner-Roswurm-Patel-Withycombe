@@ -103,7 +103,7 @@ if(mysqli_connect_error())
 
 					$result2 = $connection->query($sql);
 				
-					while ($row2 = mysqli_fetch_assoc($result)){
+					while ($row2 = mysqli_fetch_assoc($result2)){
 
 						echo "<a class=\"dropdown-item\" href=\"market.php?sponsor=".$row2['company_id']."\">".$row2['company_name']."</a>";
 
