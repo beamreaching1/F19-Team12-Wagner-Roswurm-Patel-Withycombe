@@ -132,11 +132,11 @@ if(mysqli_connect_error())
 
 		</div>
     </div>
+
+</body>
     <script>
         $(function(){
         $("#nav-placeholder").load("/nav.php");
         });
     </script>
-</body>
-
 </html>
