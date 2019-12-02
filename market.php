@@ -86,9 +86,31 @@ if(mysqli_connect_error())
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Sponsors
 			<span class="caret"></span></button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="market.php?sponsor=1">Sponsor 1</a>
-				<a class="dropdown-item" href="market.php?sponsor=2">Sponsor 2</a>
-				<a class="dropdown-item" href="market.php?sponsor=3">Sponsor 3</a>
+				<?php
+					$user = $_SESSION['uname'];
+
+					$sql = "SELECT id FROM Account WHERE username = '$user'";
+					
+					$result2 = $connection->query($sql);
+				
+					$row2 = mysqli_fetch_assoc($result);
+					
+					$d_id = $row2['id'];
+
+					$temp = "user_id";
+
+					$sql = "SELECT * FROM Company WHERE company_id=(SELECT company_id FROM Sponsor_List WHERE $temp=$d_id)";
+
+					$result2 = $connection->query($sql);
+				
+					while ($row2 = mysqli_fetch_assoc($result2)){
+
+						echo "<a class=\"dropdown-item\" href=\"market.php?sponsor=".$row2['company_id']."\">".$row2['company_name']."</a>";
+						header("Location: homepage.php");
+					}
+
+
+				?>
 			</div>
 		</div>
 	</div>
