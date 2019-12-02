@@ -118,7 +118,7 @@ if(mysqli_connect_error())
     $input = $_SESSION['uname'];
 
     foreach($array as $item){
-        $sql = "INSERT INTO Sponsor_Catalogs(company_id, item_id) VALUES((SELECT company_id FROM Sponsor WHERE id=(SELECT id from Account WHERE username='$input'))),  $item)";
+        $sql = "INSERT INTO Sponsor_Catalogs(company_id, item_id) VALUES((SELECT company_id FROM Sponsor WHERE id=(SELECT id from Account WHERE username='$input')),  $item)";
         
         $result = $connection->query($sql);
     }
