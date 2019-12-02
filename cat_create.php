@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 #Check if the user is logged in (Put this php code in all of your documents that require login)
 session_start();
 
