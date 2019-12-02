@@ -122,7 +122,7 @@ if($_SESSION['stig'] != "OK"){
           </div>
           <div class="mr-5">Profile</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="profile.php">
           <span class="float-left">View</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
