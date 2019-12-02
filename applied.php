@@ -101,10 +101,15 @@ if(mysqli_connect_error())
     $row = mysqli_fetch_assoc($result);
     
     $d_id = $row['id'];
+    $idl = $_SESSION['cart'];
+
+    foreach($idl as $c_id){
+        $sql = "INSERT INTO Sponsor_List(company_id, user_id) values($c_id, $d_id)";
     
-    $sql = "";
+        $result = $connection->query($sql);
+    }
     
-    $result = $connection->query($sql);
+    
     
     $_SESSION['cart'] = array();
     mysqli_close($connection);
