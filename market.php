@@ -106,8 +106,7 @@ if(mysqli_connect_error())
 					while ($row2 = mysqli_fetch_assoc($result2)){
 
 						echo "<a class=\"dropdown-item\" href=\"market.php?sponsor=".$row2['company_id']."\">".$row2['company_name']."</a>";
-						echo "<p>".$row2['company_id']."</p>";
-						echo "<p>".$row2['company_name']."</p>";
+						header("Location: homepage.php");
 					}
 
 
