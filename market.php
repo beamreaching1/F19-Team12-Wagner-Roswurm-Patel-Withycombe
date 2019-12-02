@@ -17,6 +17,8 @@ if (isset($_GET['item'])) {
 	unset($_GET['item']);
 }
 
+$temp = "1=1";
+
 if (isset($_GET['sponsor'])) {
 	$_SESSION['sponsor'] = $_GET['sponsor'];
 	unset($_GET['sponsor']);
@@ -39,6 +41,12 @@ if(mysqli_connect_error())
     administrator.<br \>\n";
 
 } else {
+
+  if(isset($_SESSION['sponsor'])){
+	  //	$temp = implode(',', array_map('intval', $arr));
+	$temp2=$_SESSION['sponsor'];
+	$sql = "SELECT * FROM Item WHERE item_id IN (SELECT item_id FROM Sponsor_Catalogs WHERE company_id=$temp2)";
+  }
 
   $tableName = "Item";
 
