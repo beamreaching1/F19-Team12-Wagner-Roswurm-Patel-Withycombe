@@ -44,7 +44,7 @@
                 <p class="card-text">4. Content</p>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-primary"><a href="edit_acc.php">Edit</a></button>
                 </div>
         </div>
     </div>
