@@ -93,9 +93,9 @@ if(mysqli_connect_error())
 					
 					$result2 = $connection->query($sql);
 				
-					$row = mysqli_fetch_assoc($result);
+					$row2 = mysqli_fetch_assoc($result);
 					
-					$d_id = $row['id'];
+					$d_id = $row2['id'];
 
 					$temp = "user_id";
 
@@ -103,9 +103,9 @@ if(mysqli_connect_error())
 
 					$result2 = $connection->query($sql);
 				
-					while ($row = mysqli_fetch_assoc($result)){
+					while ($row2 = mysqli_fetch_assoc($result)){
 
-						echo "<a class=\"dropdown-item\" href=\"market.php?sponsor=".$row['company_id']."\">".$row['company_name']."</a>";
+						echo "<a class=\"dropdown-item\" href=\"market.php?sponsor=".$row2['company_id']."\">".$row2['company_name']."</a>";
 
 					}
 
