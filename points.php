@@ -37,11 +37,9 @@ if(mysqli_connect_error())
     filter_input($_POST,'pointval'));
 
     $companyid = mysqli_real_escape_string($connection, 
-    filter_input($_POST,'Company Id'));
-    
-    $update = "UPDATE points SET 
-    pointval = (pointval + $pointval) WHERE driver_id = $driver_id AND
-    company_id = $companyid";
+    filter_input($_POST,'conpany_id'));
+
+    $update = "UPDATE points SET pointval = (pointval + $pointval) WHERE driver_id = $driver_id AND company_id = $companyid";
 
     mysqli_query($connection, $update);
 
@@ -82,7 +80,7 @@ mysqli_close($connection);
                     <input type="text" name="driver_id" id="driver_id"placeholder="Driver ID" required>
                     <h2>Company ID:</h2><br>
                     <input type="text" name="company_id" id="company_id" placeholder="Company ID" required><br>
-                    <h2>Point Amount:</h2><br>
+                    <h2>Points Amount:</h2><br>
                     <input type="text" name="pointval" id="pointval" placeholder="Point Value" required><br>
                     <input type="submit">
                 </form>
