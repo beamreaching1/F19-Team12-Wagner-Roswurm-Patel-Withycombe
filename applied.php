@@ -106,9 +106,13 @@ if(mysqli_connect_error())
     $idl = $_SESSION['cart'];
 
     $temp = "user_id";
+    $temp2 = "driver_id";
 
     foreach($idl as $c_id){
         $sql = "INSERT INTO Sponsor_List(company_id, $temp) values($c_id, $d_id)";
+    
+        $result = $connection->query($sql);
+        $sql = "INSERT INTO points($temp2, company_id, pointval) values($d_id, $c_id, 1000)";
     
         $result = $connection->query($sql);
     }
