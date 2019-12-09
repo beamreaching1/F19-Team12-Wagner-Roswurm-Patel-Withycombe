@@ -76,6 +76,34 @@ if(mysqli_connect_error())
 <div class="container">
 	<h1 class="text-center">Review Cart</h1>
 	<hr>
+	<?php 
+		if(isset($_SESSION['sponsor'])){
+
+	    $c_id = $_SESSION['sponsor'];
+		$user = $_SESSION['uname'];
+		$sql2 = "SELECT id FROM Account WHERE username = '$user'";
+		
+		$result2 = $connection->query($sql2);
+	
+		$row = mysqli_fetch_assoc($result2);
+		
+		$d_id = $row['id'];
+		
+		$sql2 = "SELECT pointval FROM points WHERE driver_id='$d_id' AND company_id='$c_id'";
+		
+		$result2 = $connection->query($sql2);
+		
+		$row2 = mysqli_fetch_assoc($result2);
+		
+		$balance = $row2['pointval'];
+
+		echo "<h1 class=\"text-center\">Points: $balance</h1>";
+
+	} else{
+		echo "<h1 class=\"text-center\">Points: Pick Sponsor</h1>";
+	}
+	?>
+	<hr>
 
 	<div class="row">
 <!-- Product  -->
