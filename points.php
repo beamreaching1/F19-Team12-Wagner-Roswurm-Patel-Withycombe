@@ -42,6 +42,9 @@ if(mysqli_connect_error())
     $update = "UPDATE points SET pointval = (pointval + $pointval) WHERE driver_id = $driver_id AND company_id = $companyid";
 
     mysqli_query($connection, $update);
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 }
 
