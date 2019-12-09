@@ -132,7 +132,7 @@ global $sum;
     
     $balance = $row['pointval'];
 
-    if(($connection->query($check)->num_rows) <= 0 || $balance - $sum < 0){
+    if($balance - $sum < 0){
         echo "<script>alert(\"Insufficient funds or an error has occured.\");</script>";
         header("Location: /market.php");
     } else {
