@@ -58,7 +58,7 @@ mysqli_close($connection);
 
 <form action="" method="post">
 <h2>Driver ID:</h2><br>
-<input type="text" name="driver_id" id="driver_id"placeholder="Username" required>
+<input type="text" name="driver_id" id="driver_id"placeholder="Driver ID" required>
 <h2>Company ID:</h2><br>
 <input type="text" name="company_id" id="company_id" placeholder="Company ID" required><br>
 <h2>Point Amount:</h2><br>
