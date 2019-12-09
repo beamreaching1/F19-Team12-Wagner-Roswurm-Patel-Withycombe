@@ -66,6 +66,9 @@ if(mysqli_connect_error())
     <option value="Black_List">Blacklist</option>
     <option value="points">Points</option>
     <option value="Company">Company</option>
+    <option value="Sponsor">Sponsor</option>
+    <option value="Sponsor_List">Sponsor List</option>
+
   </select>
   <input type="submit">
 </form>
