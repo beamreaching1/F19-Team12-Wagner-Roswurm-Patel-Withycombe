@@ -116,6 +116,7 @@ global $sum;
     <h1>Total Cost: ".$sum." Points</h1>
     </div>";
     $c_id = $_SESSION['sponsor'];
+    $user = $_SESSION['uname'];
     $sql = "SELECT id FROM Account WHERE username = '$user'";
     
     $result = $connection->query($sql);
