@@ -56,6 +56,8 @@ mysqli_close($connection);
 <html>
 <body>
 
+<div id="nav-placeholder"></div>
+
 <form action="" method="post">
 <h2>Driver ID:</h2><br>
 <input type="text" name="driver_id" id="driver_id"placeholder="Driver ID" required>
@@ -67,4 +69,9 @@ mysqli_close($connection);
 </form>
 
 </body>
+<script>
+    $(function(){
+      $("#nav-placeholder").load("nav.php");
+    });
+</script>
 </html>
