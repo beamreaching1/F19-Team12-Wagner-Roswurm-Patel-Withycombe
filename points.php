@@ -70,15 +70,28 @@ mysqli_close($connection);
 
 <div id="nav-placeholder"></div>
 
-<form action="" method="post">
-<h2>Driver ID:</h2><br>
-<input type="text" name="driver_id" id="driver_id"placeholder="Driver ID" required>
-<h2>Company ID:</h2><br>
-<input type="text" name="company_id" id="company_id" placeholder="Company ID" required><br>
-<h2>Point Amount:</h2><br>
-<input type="text" name="pointval" id="pointval" placeholder="Point Value" required><br>
-<input type="submit">
-</form>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Points Manager</h3>
+			</div>
+			<div class="card-body">
+                <form action="" method="post">
+                    <h2>Driver ID:</h2><br>
+                    <input type="text" name="driver_id" id="driver_id"placeholder="Driver ID" required>
+                    <h2>Company ID:</h2><br>
+                    <input type="text" name="company_id" id="company_id" placeholder="Company ID" required><br>
+                    <h2>Point Amount:</h2><br>
+                    <input type="text" name="pointval" id="pointval" placeholder="Point Value" required><br>
+                    <input type="submit">
+                </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 </body>
 <script>
