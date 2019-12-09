@@ -7,7 +7,7 @@ if($_SESSION['stig'] != "OK"){
 	#go to the login page if sig doesn't exist in the SESSION array (i.e. the user is not logged in)
 	echo('<script>window.location="login.php"</script>');
 }
-if($_SESSION['role'] != "a"){
+if($_SESSION['role'] != "a" && $_SESSION['role'] != "s"){
 	echo('<script>window.location="homepage.php"</script>');
 }
 
@@ -61,10 +61,11 @@ if(mysqli_connect_error())
 <form action="" method="POST">
   <select name="select" id="select">
     <option value="Account">Account</option>
-    <option value="Driver">Driver</option>
     <option value="Item">Item</option>
-    <option value="msg">msg</option>
+    <option value="msg">Messages</option>
     <option value="Black_List">Blacklist</option>
+    <option value="points">Points</option>
+    <option value="Company">Company</option>
   </select>
   <input type="submit">
 </form>
