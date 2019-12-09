@@ -155,10 +155,10 @@ if(mysqli_connect_error())
 		
 		$balance = $row2['pointval'];
 
-		echo "<h1>Points: $balance</h1>";
+		echo "<h1 class=\"text-center\">Points: $balance</h1>";
 
 	} else{
-		echo "<h1>Points: Pick Sponsor</h1>";
+		echo "<h1 class=\"text-center\">Points: Pick Sponsor</h1>";
 	}
 	?>
 
