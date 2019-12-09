@@ -139,6 +139,9 @@ global $sum;
     } else {
         $sum2 = $balance - $sum;
         $sql = "UPDATE points SET pointval='$sum2' WHERE driver_id='$d_id' AND company_id='$c_id'";
+        $result = $connection->query($sql);
+        $sql = "INSERT INTO msg(username, notice) values($user, 'Purchase complete!')";
+        $result = $connection->query($sql);
         echo "<script>alert(\"Purchase complete!\");</script>";
         header("Location: /homepage.php");
     }
