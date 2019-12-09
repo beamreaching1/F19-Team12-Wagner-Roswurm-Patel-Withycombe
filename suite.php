@@ -42,6 +42,8 @@ if($_SESSION['role'] != "a"){
 				<a href="forgotpassword.php">Reset a Password</a>
 				<br>
 				<a href="role.php">Role Change</a>
+				<br>
+				<a href="points.php">Points</a>
 			</div>
 		</div>
 	</div>
