@@ -30,9 +30,6 @@ if(isset($_POST['submit'])){
 		$user = mysqli_real_escape_string($connection, $_POST['user']);
 		$pass = mysqli_real_escape_string($connection, $_POST['pass']);
 
-		$message = $user . $pass;
-				echo "<script type='text/javascript'>alert('$message');</script>";
-
 		//Generate hash of inputted password
 		$options = ['cost' => 10,];
 		$salt_hash = password_hash($pass, PASSWORD_DEFAULT, $options);
@@ -106,7 +103,7 @@ if(isset($_POST['submit'])){
 </body>
 <script>
     $(function(){
-      $("#nav-placeholder").load("nav.html");
+      $("#nav-placeholder").load("nav.php");
     });
 </script>
 </html>
